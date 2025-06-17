@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import time
+import os
 from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')

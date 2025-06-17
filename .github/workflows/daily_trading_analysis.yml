@@ -15,6 +15,11 @@ on:
       - '**.py'
       - '.github/workflows/daily_trading_analysis.yml'
 
+# Grant necessary permissions for the workflow
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   # Job 1: Stock Data Refresh (Twice weekly)
   stock-refresh:
