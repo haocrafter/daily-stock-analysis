@@ -35,9 +35,9 @@ jobs:
     - name: Run Dynamic Stock Fetcher (Weekly Refresh)
       # Refresh stock list on Mondays or if no cache exists
       run: |
-        if [ "$(date +%u)" = "1" ] || [ ! -f "top_stocks.json" ]; then
+        if [ "$(date +%u)" = "1" ] || [ ! -f "output/top_stocks.json" ]; then
           echo "Refreshing stock list..."
-          python dynamic_stock_fetcher.py
+          python src/dynamic_stock_fetcher.py
         else
           echo "Using existing stock list (refresh on Mondays)"
         fi
@@ -45,34 +45,34 @@ jobs:
     - name: Run Daily Trading Analysis
       run: |
         echo "Running daily mean reversion analysis..."
-        python multi_stock_mean_reversion_dynamic.py
+        python src/multi_stock_mean_reversion_dynamic.py
     
     - name: Generate Analysis Report
       run: |
-        echo "# Daily Trading Analysis Report - $(date '+%Y-%m-%d')" > daily_report.md
-        echo "" >> daily_report.md
-        echo "## Market Analysis Summary" >> daily_report.md
-        echo "" >> daily_report.md
-        echo "Analysis completed at: $(date)" >> daily_report.md
-        echo "" >> daily_report.md
-        echo "### Top Buy Signals" >> daily_report.md
-        echo "" >> daily_report.md
-        if [ -f "top_buy_signals.csv" ]; then
-          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> daily_report.md
-          echo "|--------|-------|----------------|-----|---------|-----------|" >> daily_report.md
-          head -6 top_buy_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> daily_report.md
+        echo "# Daily Trading Analysis Report - $(date '+%Y-%m-%d')" > output/daily_report.md
+        echo "" >> output/daily_report.md
+        echo "## Market Analysis Summary" >> output/daily_report.md
+        echo "" >> output/daily_report.md
+        echo "Analysis completed at: $(date)" >> output/daily_report.md
+        echo "" >> output/daily_report.md
+        echo "### Top Buy Signals" >> output/daily_report.md
+        echo "" >> output/daily_report.md
+        if [ -f "output/top_buy_signals.csv" ]; then
+          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> output/daily_report.md
+          echo "|--------|-------|----------------|-----|---------|-----------|" >> output/daily_report.md
+          head -6 output/top_buy_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> output/daily_report.md
         fi
-        echo "" >> daily_report.md
-        echo "### Top Sell Signals" >> daily_report.md
-        echo "" >> daily_report.md
-        if [ -f "top_sell_signals.csv" ]; then
-          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> daily_report.md
-          echo "|--------|-------|----------------|-----|---------|-----------|" >> daily_report.md
-          head -6 top_sell_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> daily_report.md
+        echo "" >> output/daily_report.md
+        echo "### Top Sell Signals" >> output/daily_report.md
+        echo "" >> output/daily_report.md
+        if [ -f "output/top_sell_signals.csv" ]; then
+          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> output/daily_report.md
+          echo "|--------|-------|----------------|-----|---------|-----------|" >> output/daily_report.md
+          head -6 output/top_sell_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> output/daily_report.md
         fi
-        echo "" >> daily_report.md
-        echo "---" >> daily_report.md
-        echo "*Generated automatically by GitHub Actions*" >> daily_report.md
+        echo "" >> output/daily_report.md
+        echo "---" >> output/daily_report.md
+        echo "*Generated automatically by GitHub Actions*" >> output/daily_report.md
     
     - name: Archive Analysis Results
       run: |
@@ -81,10 +81,10 @@ jobs:
         mkdir -p "historical_analysis/$timestamp"
         
         # Copy current analysis to historical archive
-        cp top_buy_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp top_sell_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp dynamic_multi_stock_signals.png "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp daily_report.md "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp output/top_buy_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp output/top_sell_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp output/dynamic_multi_stock_signals.png "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp output/daily_report.md "historical_analysis/$timestamp/" 2>/dev/null || true
         
         echo "Archived analysis to historical_analysis/$timestamp/"
     
@@ -105,13 +105,22 @@ jobs:
           echo "Pushed daily analysis results"
         fi
     
+    - name: Send Email Report
+      env:
+        EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+      run: |
+        echo "Sending daily analysis email..."
+        python src/email_sender.py
+    
     - name: Upload Analysis Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: daily-trading-analysis-${{ github.run_number }}
         path: |
-          top_buy_signals.csv
-          top_sell_signals.csv
-          dynamic_multi_stock_signals.png
-          daily_report.md
+          output/top_buy_signals.csv
+          output/top_sell_signals.csv
+          output/dynamic_multi_stock_signals.png
+          output/daily_report.md
         retention-days: 30 

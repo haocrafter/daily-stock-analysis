@@ -20,13 +20,18 @@ class DynamicMultiStockMeanReversion:
         self.signals_df = None
         self.stock_fetcher = DynamicStockFetcher()
         self.popular_stocks = []
+        self.output_dir = 'output'
+        
+        # Create output directory if it doesn't exist
+        os.makedirs(self.output_dir, exist_ok=True)
         
     def load_stocks_from_file(self, filename='top_stocks.json'):
         """Load stocks from existing JSON file"""
         try:
-            if os.path.exists(filename):
-                print(f"Loading existing stock list from {filename}...")
-                with open(filename, 'r') as f:
+            filepath = os.path.join(self.output_dir, filename)
+            if os.path.exists(filepath):
+                print(f"Loading existing stock list from {filepath}...")
+                with open(filepath, 'r') as f:
                     stocks_data = json.load(f)
                 
                 # Extract symbols from the loaded data
@@ -36,11 +41,11 @@ class DynamicMultiStockMeanReversion:
                 print(f"Top 10 stocks: {symbols[:10]}")
                 return symbols
             else:
-                print(f"No existing {filename} found")
+                print(f"No existing {filepath} found")
                 return None
                 
         except Exception as e:
-            print(f"Error loading from {filename}: {e}")
+            print(f"Error loading from {filepath}: {e}")
             return None
     
     def fetch_dynamic_stock_list(self, force_refresh=False):
@@ -416,7 +421,8 @@ class DynamicMultiStockMeanReversion:
         plt.colorbar(scatter, ax=ax6, label='Sell Signal Strength')
         
         plt.tight_layout()
-        plt.savefig('dynamic_multi_stock_signals.png', dpi=300, bbox_inches='tight')
+        output_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.show()
     
     def run_analysis(self, force_refresh_stocks=False):
@@ -452,13 +458,17 @@ class DynamicMultiStockMeanReversion:
         self.plot_signals(top_buys, top_sells)
         
         # Save results to CSV
-        top_buys.to_csv('top_buy_signals.csv', index=False)
-        top_sells.to_csv('top_sell_signals.csv', index=False)
+        buy_signals_path = os.path.join(self.output_dir, 'top_buy_signals.csv')
+        sell_signals_path = os.path.join(self.output_dir, 'top_sell_signals.csv')
+        charts_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
         
-        print("\nResults saved to CSV files:")
-        print("- top_buy_signals.csv")
-        print("- top_sell_signals.csv")
-        print("- dynamic_multi_stock_signals.png")
+        top_buys.to_csv(buy_signals_path, index=False)
+        top_sells.to_csv(sell_signals_path, index=False)
+        
+        print("\nResults saved to output files:")
+        print(f"- {buy_signals_path}")
+        print(f"- {sell_signals_path}")
+        print(f"- {charts_path}")
         
         return top_buys, top_sells
 

@@ -12,6 +12,10 @@ class DynamicStockFetcher:
     def __init__(self):
         self.all_stocks = []
         self.stock_metrics = {}
+        self.output_dir = 'output'
+        
+        # Create output directory if it doesn't exist
+        os.makedirs(self.output_dir, exist_ok=True)
         
     def get_sp500_stocks(self):
         """Fetch S&P 500 stocks from Wikipedia"""
@@ -337,9 +341,10 @@ class DynamicStockFetcher:
     
     def save_to_file(self, stocks, filename='top_stocks.json'):
         """Save the stock list to a JSON file"""
-        with open(filename, 'w') as f:
+        filepath = os.path.join(self.output_dir, filename)
+        with open(filepath, 'w') as f:
             json.dump(stocks, f, indent=2, default=str)
-        print(f"\nSaved top stocks to {filename}")
+        print(f"\nSaved top stocks to {filepath}")
     
     def get_stock_symbols_only(self, stocks):
         """Extract just the symbols from the stock data"""
