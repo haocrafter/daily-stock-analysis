@@ -859,6 +859,14 @@
     "source_count": 1
   },
   {
+    "symbol": "BMY",
+    "score": 22,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
     "symbol": "CDNS",
     "score": 22,
     "sources": [
@@ -904,15 +912,6 @@
   },
   {
     "symbol": "CTSH",
-    "score": 22,
-    "sources": [
-      "SP500",
-      "NASDAQ100"
-    ],
-    "source_count": 2
-  },
-  {
-    "symbol": "CSGP",
     "score": 22,
     "sources": [
       "SP500",
