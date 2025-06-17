@@ -147,7 +147,7 @@ jobs:
         fi
     
     - name: Upload Analysis Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: daily-trading-analysis-${{ github.run_number }}
         path: |
@@ -203,7 +203,7 @@ jobs:
         fi
     
     - name: Upload Email Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: email-content-${{ github.run_number }}
         path: |
