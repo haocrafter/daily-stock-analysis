@@ -53,6 +53,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
+        # Pull latest changes first to avoid conflicts
+        git pull origin main --rebase
+        
         # Add generated files
         git add -A
         
@@ -61,7 +64,7 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Stock data refresh - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push
+          git push origin main
           echo "Pushed updated stock data"
         fi
 
@@ -139,6 +142,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
+        # Pull latest changes first to avoid conflicts
+        git pull origin main --rebase
+        
         # Add generated files
         git add -A
         
@@ -147,7 +153,7 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Daily trading analysis - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push
+          git push origin main
           echo "Pushed daily analysis results"
         fi
     
@@ -195,6 +201,9 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
+        # Pull latest changes first to avoid conflicts
+        git pull origin main --rebase
+        
         # Add generated email files
         git add output/gmail_embedded_email.html output/gmail_embedded_email.txt output/gmail_embedded_subject.txt
         
@@ -203,7 +212,7 @@ jobs:
           echo "No new email content to commit"
         else
           git commit -m "Generated email content - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push
+          git push origin main
           echo "Pushed email content"
         fi
     
