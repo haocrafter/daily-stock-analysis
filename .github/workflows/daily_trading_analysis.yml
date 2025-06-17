@@ -2,8 +2,12 @@ name: Daily Trading Analysis
 
 on:
   schedule:
-    # Run at 6:30 AM UTC (after market close, before next day opens)
-    - cron: '30 6 * * 1-5'  # Monday to Friday only
+    # Stock fetcher: Twice a week (Monday and Thursday) at 4:30 AM ET (9:30 AM UTC)
+    - cron: '30 9 * * 1,4'
+    # Daily analysis: Every weekday at 5:00 AM ET (10:00 AM UTC) 
+    - cron: '0 10 * * 1-5'
+    # Email sender: Every weekday at 5:30 AM ET (10:30 AM UTC)
+    - cron: '30 10 * * 1-5'
   workflow_dispatch:  # Allow manual trigger
   push:
     branches: [ main ]
@@ -12,8 +16,10 @@ on:
       - '.github/workflows/daily_trading_analysis.yml'
 
 jobs:
-  trading-analysis:
+  # Job 1: Stock Data Refresh (Twice weekly)
+  stock-refresh:
     runs-on: ubuntu-latest
+    if: github.event.schedule == '30 9 * * 1,4' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     
     steps:
     - name: Checkout repository
@@ -32,19 +38,53 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run Dynamic Stock Fetcher (Weekly Refresh)
-      # Refresh stock list on Mondays or if no cache exists
+    - name: Run Dynamic Stock Fetcher
       run: |
-        if [ "$(date +%u)" = "1" ] || [ ! -f "output/top_stocks.json" ]; then
-          echo "Refreshing stock list..."
-          python src/dynamic_stock_fetcher.py
+        echo "🔄 Refreshing stock list (twice weekly schedule)..."
+        python src/dynamic_stock_fetcher.py
+    
+    - name: Commit and Push Stock Data
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add generated files
+        git add -A
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
         else
-          echo "Using existing stock list (refresh on Mondays)"
+          git commit -m "Stock data refresh - $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
+          echo "Pushed updated stock data"
         fi
+
+  # Job 2: Daily Trading Analysis
+  trading-analysis:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     
     - name: Run Daily Trading Analysis
       run: |
-        echo "Running daily mean reversion analysis..."
+        echo "📊 Running daily mean reversion analysis at 5:00 AM ET..."
         python src/multi_stock_mean_reversion_dynamic.py
     
     - name: Generate Analysis Report
@@ -54,6 +94,7 @@ jobs:
         echo "## Market Analysis Summary" >> output/daily_report.md
         echo "" >> output/daily_report.md
         echo "Analysis completed at: $(date)" >> output/daily_report.md
+        echo "Scheduled time: 5:00 AM ET (10:00 AM UTC)" >> output/daily_report.md
         echo "" >> output/daily_report.md
         echo "### Top Buy Signals" >> output/daily_report.md
         echo "" >> output/daily_report.md
@@ -72,7 +113,7 @@ jobs:
         fi
         echo "" >> output/daily_report.md
         echo "---" >> output/daily_report.md
-        echo "*Generated automatically by GitHub Actions*" >> output/daily_report.md
+        echo "*Generated automatically by GitHub Actions at 5:00 AM ET*" >> output/daily_report.md
     
     - name: Archive Analysis Results
       run: |
@@ -105,15 +146,6 @@ jobs:
           echo "Pushed daily analysis results"
         fi
     
-    - name: Send Email Report
-      env:
-        EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
-        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-      run: |
-        echo "Sending daily analysis email..."
-        python src/email_sender.py
-    
     - name: Upload Analysis Artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -123,4 +155,73 @@ jobs:
           output/top_sell_signals.csv
           output/dynamic_multi_stock_signals.png
           output/daily_report.md
-        retention-days: 30 
+          output/gmail_embedded_email.html
+        retention-days: 30
+
+  # Job 3: Email Notification
+  email-notification:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '30 10 * * 1-5' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Generate Embedded Email Content
+      run: |
+        echo "📧 Generating email with embedded charts at 5:30 AM ET..."
+        python src/email_sender_gmail_embedded.py
+    
+    - name: Commit and Push Email Content
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add generated email files
+        git add output/gmail_embedded_email.html output/gmail_embedded_email.txt output/gmail_embedded_subject.txt
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No new email content to commit"
+        else
+          git commit -m "Generated email content - $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
+          echo "Pushed email content"
+        fi
+    
+    - name: Upload Email Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: email-content-${{ github.run_number }}
+        path: |
+          output/gmail_embedded_email.html
+          output/gmail_embedded_email.txt
+          output/gmail_embedded_subject.txt
+        retention-days: 30
+    
+    - name: Email Content Summary
+      run: |
+        echo "📧 Email content generated successfully!"
+        echo "🕐 Scheduled time: 5:30 AM ET (10:30 AM UTC)"
+        echo "📁 Files available as artifacts:"
+        echo "   - gmail_embedded_email.html (with embedded charts)"
+        echo "   - gmail_embedded_email.txt (plain text version)"
+        echo "   - gmail_embedded_subject.txt (email subject)"
+        echo ""
+        echo "💡 To send emails automatically, configure:"
+        echo "   - Gmail SMTP credentials"
+        echo "   - SendGrid API key"
+        echo "   - Or use these files with any email service" 

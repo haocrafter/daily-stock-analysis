@@ -1,0 +1,41 @@
+📈 DAILY TRADING ANALYSIS REPORT - 2025-06-16 22:17 UTC
+============================================================
+
+📊 MARKET ANALYSIS SUMMARY:
+• Total Stocks Analyzed: 100
+• Buy Signals Found: 15
+• Sell Signals Found: 15
+• Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
+• Strategy: Mean Reversion (Bollinger Bands, RSI, Z-Score)
+
+🟢 TOP 5 BUY SIGNALS (Oversold Opportunities):
+--------------------------------------------------
+1. ADBE - $391.68 | Signal: 0.58 | RSI: 36.9 | Change: -6.1%
+2. TMUS - $228.00 | Signal: 0.57 | RSI: 29.2 | Change: -7.3%
+3. ADP - $306.82 | Signal: 0.55 | RSI: 27.3 | Change: -5.6%
+4. ISRG - $512.18 | Signal: 0.48 | RSI: 33.1 | Change: -8.1%
+5. LULU - $239.11 | Signal: 0.45 | RSI: 22.9 | Change: -9.9%
+
+🔴 TOP 5 SELL SIGNALS (Overbought Conditions):
+--------------------------------------------------
+1. FANG - $154.91 | Signal: 0.75 | RSI: 75.3 | Change: +10.2%
+2. ORCL - $215.22 | Signal: 0.73 | RSI: 95.3 | Change: +23.7%
+3. KLAC - $867.67 | Signal: 0.48 | RSI: 79.2 | Change: +7.4%
+4. MU - $115.60 | Signal: 0.45 | RSI: 89.0 | Change: +6.5%
+5. SBUX - $93.26 | Signal: 0.43 | RSI: 70.6 | Change: +4.0%
+
+💡 TRADING TIPS:
+• Buy Signals: Look for RSI < 30, negative Z-scores, recent declines
+• Sell Signals: Look for RSI > 70, positive Z-scores, recent gains  
+• Risk Management: Always use stop-losses and position sizing
+• Confirmation: Consider volume, market conditions, fundamentals
+
+🖼️ EMBEDDED VISUALIZATIONS:
+• Market overview chart showing all signals
+• Buy signals detailed chart  
+• Sell signals detailed chart
+• All charts embedded in HTML - no separate files needed!
+
+📧 Automated Trading Analysis | Embedded Charts Version
+⚠️  This is for educational purposes only. Not financial advice.
+📊 Data sources: Yahoo Finance via yfinance library
