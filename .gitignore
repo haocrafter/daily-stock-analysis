@@ -23,6 +23,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
 # Virtual Environment
 venv/
@@ -32,4 +33,34 @@ ENV/
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo
+*~
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Keep analysis results (these should be committed)
+# top_buy_signals.csv
+# top_sell_signals.csv
+# top_stocks.json
+# daily_report.md
+# *.png
+# historical_analysis/ 

@@ -1,0 +1,117 @@
+name: Daily Trading Analysis
+
+on:
+  schedule:
+    # Run at 6:30 AM UTC (after market close, before next day opens)
+    - cron: '30 6 * * 1-5'  # Monday to Friday only
+  workflow_dispatch:  # Allow manual trigger
+  push:
+    branches: [ main ]
+    paths: 
+      - '**.py'
+      - '.github/workflows/daily_trading_analysis.yml'
+
+jobs:
+  trading-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run Dynamic Stock Fetcher (Weekly Refresh)
+      # Refresh stock list on Mondays or if no cache exists
+      run: |
+        if [ "$(date +%u)" = "1" ] || [ ! -f "top_stocks.json" ]; then
+          echo "Refreshing stock list..."
+          python dynamic_stock_fetcher.py
+        else
+          echo "Using existing stock list (refresh on Mondays)"
+        fi
+    
+    - name: Run Daily Trading Analysis
+      run: |
+        echo "Running daily mean reversion analysis..."
+        python multi_stock_mean_reversion_dynamic.py
+    
+    - name: Generate Analysis Report
+      run: |
+        echo "# Daily Trading Analysis Report - $(date '+%Y-%m-%d')" > daily_report.md
+        echo "" >> daily_report.md
+        echo "## Market Analysis Summary" >> daily_report.md
+        echo "" >> daily_report.md
+        echo "Analysis completed at: $(date)" >> daily_report.md
+        echo "" >> daily_report.md
+        echo "### Top Buy Signals" >> daily_report.md
+        echo "" >> daily_report.md
+        if [ -f "top_buy_signals.csv" ]; then
+          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> daily_report.md
+          echo "|--------|-------|----------------|-----|---------|-----------|" >> daily_report.md
+          head -6 top_buy_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> daily_report.md
+        fi
+        echo "" >> daily_report.md
+        echo "### Top Sell Signals" >> daily_report.md
+        echo "" >> daily_report.md
+        if [ -f "top_sell_signals.csv" ]; then
+          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> daily_report.md
+          echo "|--------|-------|----------------|-----|---------|-----------|" >> daily_report.md
+          head -6 top_sell_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> daily_report.md
+        fi
+        echo "" >> daily_report.md
+        echo "---" >> daily_report.md
+        echo "*Generated automatically by GitHub Actions*" >> daily_report.md
+    
+    - name: Archive Analysis Results
+      run: |
+        # Create timestamped directory for historical data
+        timestamp=$(date '+%Y%m%d_%H%M%S')
+        mkdir -p "historical_analysis/$timestamp"
+        
+        # Copy current analysis to historical archive
+        cp top_buy_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp top_sell_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp dynamic_multi_stock_signals.png "historical_analysis/$timestamp/" 2>/dev/null || true
+        cp daily_report.md "historical_analysis/$timestamp/" 2>/dev/null || true
+        
+        echo "Archived analysis to historical_analysis/$timestamp/"
+    
+    - name: Commit and Push Results
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add generated files
+        git add -A
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Daily trading analysis - $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
+          echo "Pushed daily analysis results"
+        fi
+    
+    - name: Upload Analysis Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: daily-trading-analysis-${{ github.run_number }}
+        path: |
+          top_buy_signals.csv
+          top_sell_signals.csv
+          dynamic_multi_stock_signals.png
+          daily_report.md
+        retention-days: 30 

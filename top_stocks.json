@@ -1,0 +1,923 @@
+[
+  {
+    "symbol": "TSLA",
+    "score": 46,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 5
+  },
+  {
+    "symbol": "PLTR",
+    "score": 44,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 5
+  },
+  {
+    "symbol": "NVDA",
+    "score": 43,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "AMD",
+    "score": 39,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "AAPL",
+    "score": 35,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "WBD",
+    "score": 35,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "AMZN",
+    "score": 34,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "META",
+    "score": 34,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "INTC",
+    "score": 33,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "MOST_ACTIVE"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "MSFT",
+    "score": 33,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "GOOGL",
+    "score": 32,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "AVGO",
+    "score": 32,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "GILD",
+    "score": 32,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "MU",
+    "score": 31,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "PYPL",
+    "score": 31,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "GOOG",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "COIN",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "CRWD",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "LRCX",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "NFLX",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "VRTX",
+    "score": 30,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "AMAT",
+    "score": 29,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CSCO",
+    "score": 29,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "F",
+    "score": 29,
+    "sources": [
+      "SP500",
+      "MOST_ACTIVE"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "MCHP",
+    "score": 29,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ON",
+    "score": 29,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ADBE",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "ABNB",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "BIIB",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 4
+  },
+  {
+    "symbol": "CMCSA",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CSX",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "DASH",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "RECENT_IPO"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "QCOM",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "TXN",
+    "score": 28,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "SHOP",
+    "score": 28,
+    "sources": [
+      "NASDAQ100",
+      "RECENT_IPO"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "INTU",
+    "score": 27,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "KLAC",
+    "score": 27,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "SBUX",
+    "score": 27,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "UBER",
+    "score": 27,
+    "sources": [
+      "SP500",
+      "RECENT_IPO"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CPRT",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ISRG",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "KDP",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "KHC",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "PANW",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "PEP",
+    "score": 26,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "DIS",
+    "score": 26,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "ADI",
+    "score": 25,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ORCL",
+    "score": 25,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "REGN",
+    "score": 25,
+    "sources": [
+      "SP500",
+      "NASDAQ100",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "SOFI",
+    "score": 25,
+    "sources": [
+      "MOST_ACTIVE",
+      "TRENDING"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "AMGN",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ADP",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "AXON",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "BKR",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "BKNG",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CCL",
+    "score": 24,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "C",
+    "score": 24,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "CEG",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "COST",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "EXC",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "FAST",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "FTNT",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "HON",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "IDXX",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "LIN",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "LULU",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "MRNA",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "TRENDING"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "MDLZ",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "MNST",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "NXPI",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "ORLY",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "PFE",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "TRENDING"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "TMUS",
+    "score": 24,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "UNH",
+    "score": 24,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "LCID",
+    "score": 24,
+    "sources": [
+      "MOST_ACTIVE",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "HIMS",
+    "score": 24,
+    "sources": [
+      "MOST_ACTIVE"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "ADSK",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "BAC",
+    "score": 23,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "DXCM",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "FANG",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "FCX",
+    "score": 23,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "GEHC",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "MAR",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "NEE",
+    "score": 23,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "ODFL",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CRM",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "TRENDING"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "SMCI",
+    "score": 23,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "WDAY",
+    "score": 23,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "APP",
+    "score": 23,
+    "sources": [
+      "NASDAQ100"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "MSTR",
+    "score": 23,
+    "sources": [
+      "NASDAQ100"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "ZS",
+    "score": 23,
+    "sources": [
+      "NASDAQ100",
+      "RECENT_IPO",
+      "TRENDING"
+    ],
+    "source_count": 3
+  },
+  {
+    "symbol": "AEP",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "T",
+    "score": 22,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "CDNS",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CDW",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CHTR",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CTAS",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "KO",
+    "score": 22,
+    "sources": [
+      "SP500"
+    ],
+    "source_count": 1
+  },
+  {
+    "symbol": "CTSH",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  },
+  {
+    "symbol": "CSGP",
+    "score": 22,
+    "sources": [
+      "SP500",
+      "NASDAQ100"
+    ],
+    "source_count": 2
+  }
+]
