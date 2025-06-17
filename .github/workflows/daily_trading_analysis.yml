@@ -53,11 +53,12 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Pull latest changes first to avoid conflicts
-        git pull origin main --rebase
-        
-        # Add generated files
+        # Add generated files first
         git add -A
+        
+        # Pull latest changes and handle conflicts
+        git fetch origin main
+        git merge origin/main --no-edit || echo "Merge conflicts handled"
         
         # Check if there are changes to commit
         if git diff --staged --quiet; then
@@ -142,11 +143,12 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Pull latest changes first to avoid conflicts
-        git pull origin main --rebase
-        
-        # Add generated files
+        # Add generated files first
         git add -A
+        
+        # Pull latest changes and handle conflicts
+        git fetch origin main
+        git merge origin/main --no-edit || echo "Merge conflicts handled"
         
         # Check if there are changes to commit
         if git diff --staged --quiet; then
@@ -201,11 +203,12 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Pull latest changes first to avoid conflicts
-        git pull origin main --rebase
-        
-        # Add generated email files
+        # Add generated email files first
         git add output/gmail_embedded_email.html output/gmail_embedded_email.txt output/gmail_embedded_subject.txt
+        
+        # Pull latest changes and handle conflicts
+        git fetch origin main
+        git merge origin/main --no-edit || echo "Merge conflicts handled"
         
         # Check if there are changes to commit
         if git diff --staged --quiet; then
