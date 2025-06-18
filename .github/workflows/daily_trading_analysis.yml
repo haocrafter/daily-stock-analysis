@@ -2,30 +2,27 @@ name: Automated Trading Analysis
 
 on:
   schedule:
-    # Stock fetcher: Twice a week (Monday and Thursday) at 4:30 AM ET (9:30 AM UTC)
-    - cron: '30 9 * * 1,4'
-    # Combined analysis: Every weekday at 5:00 AM ET (10:00 AM UTC) 
+    # Complete workflow: Every weekday at 5:00 AM ET (10:00 AM UTC)
     - cron: '0 10 * * 1-5'
-    # Email sender: Every weekday at 5:30 AM ET (10:30 AM UTC)
-    - cron: '30 10 * * 1-5'
+    # Stock refresh only: Twice a week (Monday and Thursday) at 4:30 AM ET (9:30 AM UTC)  
+    - cron: '30 9 * * 1,4'
   workflow_dispatch:  # Allow manual trigger
 
 # Grant necessary permissions for the workflow
 permissions:
-  contents: write
+  contents: read
   actions: read
 
 jobs:
-  # Job 1: Stock Data Refresh (Twice weekly)
+  # Job 1: Stock Data Refresh
   stock-refresh:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '30 9 * * 1,4' || github.event_name == 'workflow_dispatch'
+    # Run on stock refresh schedule OR when full workflow runs
+    if: github.event.schedule == '30 9 * * 1,4' || github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch'
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -38,42 +35,45 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run Dynamic Stock Fetcher
+    - name: Check for existing stock data
+      id: check_stock_data
       run: |
-        echo "🔄 Refreshing stock list (twice weekly schedule)..."
-        python src/dynamic_stock_fetcher.py
+        # Check if we have recent stock data in artifacts from previous runs
+        # For now, always refresh to ensure we have the latest data
+        echo "refresh_needed=true" >> $GITHUB_OUTPUT
     
-    - name: Commit and Push Stock Data
+    - name: Run Dynamic Stock Fetcher
+      if: steps.check_stock_data.outputs.refresh_needed == 'true'
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        echo "🔄 Fetching dynamic stock list..."
+        python src/dynamic_stock_fetcher.py
         
-        # Add generated files
-        git add -A
-        
-        # Pull latest changes and handle conflicts
-        git fetch origin main
-        git merge origin/main --no-edit || echo "Merge conflicts handled"
-        
-        # Check if there are changes to commit
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
+        if [ -f "output/top_stocks.json" ]; then
+          echo "✅ Stock data generated successfully"
+          echo "📊 Number of stocks: $(jq length output/top_stocks.json)"
+          echo "📊 File size: $(du -h output/top_stocks.json)"
         else
-          git commit -m "Stock data refresh - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push origin main
-          echo "Pushed updated stock data"
+          echo "❌ Failed to generate stock data"
+          exit 1
         fi
+    
+    - name: Upload Stock Data Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: stock-data
+        path: output/top_stocks.json
+        retention-days: 7
 
-  # Job 2: Combined Strategy Analysis (Daily)
+  # Job 2: Combined Strategy Analysis  
   combined-analysis:
     runs-on: ubuntu-latest
+    needs: stock-refresh
+    # Only run on full workflow schedule or manual trigger
     if: github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch'
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -86,35 +86,76 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Download Stock Data
+      uses: actions/download-artifact@v4
+      with:
+        name: stock-data
+        path: output/
+    
+    - name: Verify Stock Data
+      run: |
+        if [ -f "output/top_stocks.json" ]; then
+          echo "✅ Stock data downloaded successfully"
+          echo "📊 Number of stocks: $(jq length output/top_stocks.json)"
+          echo "📊 Top 10 stocks: $(jq -r '.[0:10][].symbol' output/top_stocks.json | tr '\n' ' ')"
+        else
+          echo "❌ Stock data not found!"
+          exit 1
+        fi
+    
     - name: Run Combined Strategy Analysis
       run: |
-        echo "📊 Running combined strategy analysis at 5:00 AM ET..."
+        echo "📊 Running combined strategy analysis..."
         python src/combined_strategy_analysis.py
+        
+        # Verify all expected output files were created
+        expected_files=(
+          "output/combined_strategy_analysis.csv"
+          "output/combined_strategy_analysis.png" 
+          "output/consensus_signals.csv"
+          "output/momentum_dominant_signals.csv"
+          "output/mean_reversion_dominant_signals.csv"
+          "output/contrarian_signals.csv"
+        )
+        
+        echo "🔍 Verifying analysis outputs..."
+        for file in "${expected_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file ($(du -h "$file" | cut -f1))"
+          else
+            echo "❌ Missing: $file"
+          fi
+        done
+        
+        # Count signals in main analysis file
+        if [ -f "output/combined_strategy_analysis.csv" ]; then
+          signal_count=$(tail -n +2 output/combined_strategy_analysis.csv | wc -l)
+          echo "📊 Total signals generated: $signal_count"
+        fi
     
-    - name: Upload Analysis Artifacts
+    - name: Upload Analysis Results
       uses: actions/upload-artifact@v4
       with:
-        name: combined-analysis-${{ github.run_number }}
+        name: analysis-results
         path: |
           output/combined_strategy_analysis.csv
           output/combined_strategy_analysis.png
           output/consensus_signals.csv
           output/momentum_dominant_signals.csv
-          output/mean_reversion_dominant_signals.csv
+          output/mean_reversion_dominant_signals.csv  
           output/contrarian_signals.csv
         retention-days: 30
 
-  # Job 3: Email Content Generation (Daily)
+  # Job 3: Email Content Generation
   email-generation:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '30 10 * * 1-5' || github.event_name == 'workflow_dispatch'
-    needs: combined-analysis  # Wait for analysis to complete
+    needs: combined-analysis
+    # Only run on full workflow schedule or manual trigger
+    if: github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch'
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -130,39 +171,99 @@ jobs:
     - name: Download Analysis Results
       uses: actions/download-artifact@v4
       with:
-        name: combined-analysis-${{ github.run_number }}
+        name: analysis-results
         path: output/
+    
+    - name: Verify Analysis Data
+      run: |
+        echo "📋 Verifying downloaded analysis results..."
+        
+        required_files=(
+          "output/combined_strategy_analysis.csv"
+          "output/combined_strategy_analysis.png"
+          "output/consensus_signals.csv"
+          "output/momentum_dominant_signals.csv"
+          "output/mean_reversion_dominant_signals.csv"
+          "output/contrarian_signals.csv"
+        )
+        
+        all_files_present=true
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file ($(du -h "$file" | cut -f1))"
+          else
+            echo "❌ Missing: $file"
+            all_files_present=false
+          fi
+        done
+        
+        if [ "$all_files_present" = false ]; then
+          echo "❌ Required analysis files are missing!"
+          exit 1
+        fi
+        
+        # Show signal counts
+        if [ -f "output/combined_strategy_analysis.csv" ]; then
+          total_signals=$(tail -n +2 output/combined_strategy_analysis.csv | wc -l)
+          consensus_signals=$(tail -n +2 output/consensus_signals.csv | wc -l)
+          momentum_signals=$(tail -n +2 output/momentum_dominant_signals.csv | wc -l)
+          
+          echo "📊 Signal Summary:"
+          echo "   - Total signals: $total_signals"
+          echo "   - Consensus signals: $consensus_signals"  
+          echo "   - Momentum signals: $momentum_signals"
+        fi
     
     - name: Generate Email Content
       run: |
-        echo "📧 Generating email with combined strategy dashboard at 5:30 AM ET..."
+        echo "📧 Generating email with combined strategy dashboard..."
         python src/email_sender_gmail_embedded.py
+        
+        # Verify email files were created
+        if [ -f "output/gmail_embedded_email.html" ]; then
+          email_size=$(du -h output/gmail_embedded_email.html | cut -f1)
+          echo "✅ HTML email generated ($email_size)"
+        fi
+        
+        if [ -f "output/gmail_embedded_email.txt" ]; then
+          echo "✅ Plain text email generated"
+        fi
+        
+        if [ -f "output/gmail_embedded_subject.txt" ]; then
+          subject=$(cat output/gmail_embedded_subject.txt)
+          echo "✅ Email subject: $subject"
+        fi
     
-    - name: Upload Email Artifacts
+    - name: Upload Email Content
       uses: actions/upload-artifact@v4
       with:
-        name: email-content-${{ github.run_number }}
+        name: email-content
         path: |
           output/gmail_embedded_email.html
           output/gmail_embedded_email.txt
           output/gmail_embedded_subject.txt
         retention-days: 30
     
-    - name: Email Content Summary
+    - name: Workflow Summary
       run: |
-        echo "📧 Combined Strategy Email Content Generated Successfully!"
-        echo "🕐 Scheduled time: 5:30 AM ET (10:30 AM UTC)"
-        echo "📊 Analysis type: Combined Strategy (Mean Reversion + Momentum)"
-        echo "📁 Files available as artifacts:"
-        echo "   - gmail_embedded_email.html (1MB+ with embedded dashboard)"
-        echo "   - gmail_embedded_email.txt (plain text summary)"
-        echo "   - gmail_embedded_subject.txt (email subject)"
         echo ""
-        echo "🎯 Strategy breakdown included in email:"
-        echo "   - Consensus signals (both strategies agree)"
-        echo "   - Momentum-driven signals"
-        echo "   - Mean reversion signals"
-        echo "   - Contrarian signals"
-        echo "   - Confidence scoring and strategy validation"
+        echo "🎉 AUTOMATED TRADING ANALYSIS COMPLETE!"
+        echo "=" * 50
+        echo "📊 Combined Strategy Analysis (Mean Reversion + Momentum)"
+        echo "🕐 Completed at: $(date)"
         echo ""
-        echo "💡 To send emails automatically, configure email service credentials" 
+        echo "📁 Generated Artifacts:"
+        echo "   1. stock-data: Dynamic stock list (top_stocks.json)"
+        echo "   2. analysis-results: Complete strategy analysis with visualizations"
+        echo "   3. email-content: Ready-to-send email with embedded dashboard"
+        echo ""
+        echo "🎯 Strategy Types Analyzed:"
+        echo "   - CONSENSUS: Both strategies agree (highest confidence)"
+        echo "   - MOMENTUM: Trend-following signals"  
+        echo "   - MEAN_REVERSION: Contrarian signals"
+        echo "   - CONTRARIAN: Strategies disagree (high risk/reward)"
+        echo ""
+        echo "💡 Next Steps:"
+        echo "   - Download email-content artifact to send reports"
+        echo "   - Review analysis-results for detailed signal data"
+        echo "   - Configure email automation for hands-off operation" 
