@@ -57,10 +57,23 @@ Thumbs.db
 *.temp
 *.log
 
-# Keep analysis results (these should be committed)
-# top_buy_signals.csv
-# top_sell_signals.csv
-# top_stocks.json
-# daily_report.md
-# *.png
-# historical_analysis/ 
+# Output Directory - Generated Analysis Results
+output/
+!output/.gitkeep
+
+# Historical Analysis Archives
+historical_analysis/
+
+# Generated Reports and Data Files (anywhere in repo)
+*.csv
+*.png
+*.html
+*.eml
+*.json
+daily_report.md
+
+# But keep essential config files
+!requirements.txt
+!package.json
+!tsconfig.json
+!.github/ 

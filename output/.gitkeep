@@ -1,0 +1,10 @@
+# This file ensures the output/ directory is tracked by Git
+# while all generated files within it are ignored.
+# 
+# The output/ directory is where all analysis results are generated:
+# - CSV files with trading signals
+# - PNG charts and visualizations  
+# - HTML email reports
+# - JSON data files
+# 
+# These files are environment-specific and should not be committed to Git. 
