@@ -1,4 +1,4 @@
-📈 DAILY TRADING ANALYSIS REPORT - 2025-06-16 22:17 UTC
+📈 DAILY TRADING ANALYSIS REPORT - 2025-06-17 10:48 UTC
 ============================================================
 
 📊 MARKET ANALYSIS SUMMARY:
@@ -10,19 +10,19 @@
 
 🟢 TOP 5 BUY SIGNALS (Oversold Opportunities):
 --------------------------------------------------
-1. ADBE - $391.68 | Signal: 0.58 | RSI: 36.9 | Change: -6.1%
-2. TMUS - $228.00 | Signal: 0.57 | RSI: 29.2 | Change: -7.3%
-3. ADP - $306.82 | Signal: 0.55 | RSI: 27.3 | Change: -5.6%
-4. ISRG - $512.18 | Signal: 0.48 | RSI: 33.1 | Change: -8.1%
-5. LULU - $239.11 | Signal: 0.45 | RSI: 22.9 | Change: -9.9%
+1. CHTR - $375.23 | Signal: 0.48 | RSI: 26.6 | Change: -4.9%
+2. LULU - $241.29 | Signal: 0.45 | RSI: 17.8 | Change: -6.9%
+3. ADP - $307.91 | Signal: 0.42 | RSI: 16.8 | Change: -2.9%
+4. ORLY - $88.12 | Signal: 0.40 | RSI: 39.5 | Change: -2.0%
+5. TMUS - $230.99 | Signal: 0.37 | RSI: 34.1 | Change: -2.9%
 
 🔴 TOP 5 SELL SIGNALS (Overbought Conditions):
 --------------------------------------------------
-1. FANG - $154.91 | Signal: 0.75 | RSI: 75.3 | Change: +10.2%
-2. ORCL - $215.22 | Signal: 0.73 | RSI: 95.3 | Change: +23.7%
-3. KLAC - $867.67 | Signal: 0.48 | RSI: 79.2 | Change: +7.4%
-4. MU - $115.60 | Signal: 0.45 | RSI: 89.0 | Change: +6.5%
-5. SBUX - $93.26 | Signal: 0.43 | RSI: 70.6 | Change: +4.0%
+1. ORCL - $211.10 | Signal: 0.67 | RSI: 88.7 | Change: +19.2%
+2. AMD - $126.39 | Signal: 0.57 | RSI: 64.9 | Change: +3.8%
+3. LRCX - $93.41 | Signal: 0.55 | RSI: 73.0 | Change: +5.8%
+4. WBD - $10.76 | Signal: 0.50 | RSI: 66.9 | Change: +12.9%
+5. FANG - $151.03 | Signal: 0.47 | RSI: 67.0 | Change: +6.3%
 
 💡 TRADING TIPS:
 • Buy Signals: Look for RSI < 30, negative Z-scores, recent declines
