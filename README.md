@@ -1,320 +1,248 @@
-# 📈 Glowing Vibe - Automated Trading Analysis System
+# 🚀 Glowing Vibe: Advanced Stock Analysis & Trading Signals
 
-A comprehensive, automated stock trading analysis system that dynamically fetches popular stocks, performs mean reversion analysis, and generates beautiful email reports with embedded charts.
+A comprehensive stock analysis platform that combines **Mean Reversion** and **Momentum-Based** trading strategies to generate intelligent buy/sell signals across the most popular stocks.
 
-## 🎯 **Project Overview**
+## 🎯 Features
 
-This system provides:
-- **Dynamic Stock Discovery**: Fetches the 100 most popular stocks from multiple sources
-- **Advanced Technical Analysis**: Mean reversion strategy using Bollinger Bands, RSI, and Z-Score
-- **Beautiful Visualizations**: Professional charts with buy/sell signals
-- **Automated Email Reports**: HTML emails with embedded charts
-- **GitHub Actions Automation**: Scheduled execution and historical archiving
+### **Multi-Strategy Analysis**
+- **Mean Reversion Algorithm**: Identifies oversold/overbought conditions using Bollinger Bands, RSI, Z-Score analysis
+- **Momentum Algorithms**: Detects trend-following opportunities using RSI, MACD, Price ROC, and Moving Average signals
+- **Combined Strategy Analysis**: Intelligently combines both approaches for consensus, contrarian, and strategy-specific signals
 
-## 📊 **Features**
+### **Dynamic Stock Selection**
+- Automatically fetches top stocks from S&P 500, NASDAQ 100, Dow Jones, and trending stocks
+- Ranks stocks by popularity score (market cap, volume, momentum, beta)
+- Supports 100+ stocks with intelligent caching
 
-### 🔍 **Dynamic Stock Selection**
-- S&P 500 and NASDAQ 100 components
-- Most active stocks from Yahoo Finance
-- Recent IPOs (past 2 years)
-- Popularity scoring based on market cap, volume, momentum, and beta
-- Smart caching to avoid unnecessary API calls
+### **Advanced Technical Analysis**
+- **15+ Technical Indicators**: RSI, MACD, Bollinger Bands, Z-Score, ROC, Moving Averages, Volume Analysis
+- **Signal Confidence Scoring**: Each signal includes confidence levels and strategy type classification
+- **Multi-timeframe Analysis**: 5-day, 10-day, 20-day momentum with 252-day lookback
 
-### 📈 **Technical Analysis**
-- **Mean Reversion Strategy**: Identifies oversold (buy) and overbought (sell) conditions
-- **Multiple Indicators**: Bollinger Bands, RSI (14-period), Z-Score
-- **Signal Strength Scoring**: Combines multiple factors for robust signals
-- **Risk Metrics**: Price volatility, momentum analysis, beta calculations
+### **Comprehensive Reporting**
+- **Visual Charts**: Professional matplotlib visualizations for all analyses
+- **CSV Exports**: Detailed signal data for further analysis
+- **Strategy Classification**: CONSENSUS, MOMENTUM, MEAN_REVERSION, CONTRARIAN, WEAK
+- **Email Integration**: Automated Gmail reports with embedded charts
 
-### 🎨 **Visualizations**
-- **Market Overview Chart**: Complete signal analysis across all stocks
-- **Buy Signals Chart**: Detailed visualization of oversold opportunities
-- **Sell Signals Chart**: Detailed visualization of overbought conditions
-- **Interactive Elements**: Color-coded signals, trend lines, annotations
+## 📊 Strategy Overview
 
-### 📧 **Email Reports**
-- **Embedded Charts**: PNG charts embedded directly in HTML (no attachments needed)
-- **Professional Design**: Modern, responsive email templates
-- **Multiple Formats**: HTML (with embedded charts), plain text, and .eml files
-- **Comprehensive Data**: Top signals, trading tips, risk management guidance
+### **1. Mean Reversion Strategy**
+Identifies stocks that have deviated significantly from their average price and are likely to revert:
+- **Buy Signals**: Oversold conditions (low RSI, negative Z-score, below Bollinger lower band)
+- **Sell Signals**: Overbought conditions (high RSI, positive Z-score, above Bollinger upper band)
+- **Best For**: Range-bound markets, high-volatility stocks, contrarian plays
 
-## 🏗️ **Project Structure**
+### **2. Momentum Strategy**
+Identifies stocks with strong directional movement likely to continue:
+- **Buy Signals**: Upward momentum (RSI > 50, MACD crossovers, positive ROC, price above MAs)
+- **Sell Signals**: Downward momentum (RSI < 50, bearish MACD, negative ROC, price below MAs)
+- **Best For**: Trending markets, breakout plays, trend-following
 
-```
-glowing-vibe/
-├── src/                                    # Source code
-│   ├── dynamic_stock_fetcher.py           # Dynamic stock discovery
-│   ├── multi_stock_mean_reversion_dynamic.py  # Trading analysis
-│   └── email_sender_gmail_embedded.py     # Email generation with embedded charts
-├── output/                                 # Generated files
-│   ├── top_stocks.json                    # Cached stock list
-│   ├── top_buy_signals.csv               # Buy signals data
-│   ├── top_sell_signals.csv              # Sell signals data
-│   ├── *.png                             # Chart visualizations
-│   └── gmail_embedded_email.html         # Email with embedded charts
-├── .github/workflows/                      # Automation
-│   └── daily_trading_analysis.yml        # GitHub Actions workflow
-├── historical_analysis/                   # Archived results
-└── requirements.txt                       # Python dependencies
-```
+### **3. Combined Strategy**
+Intelligently combines both approaches:
+- **Consensus Signals**: Both strategies agree (highest confidence)
+- **Momentum-Driven**: Momentum dominates with mean reversion support
+- **Mean Reversion-Driven**: Mean reversion dominates with momentum confirmation
+- **Contrarian Signals**: Strategies disagree (high risk/reward opportunities)
 
-## ⚡ **Quick Start**
+## 🛠 Installation
 
-### 1. **Setup Environment**
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone <repository-url>
 cd glowing-vibe
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Set up environment variables (optional, for email features)
+cp .env.example .env
+# Edit .env with your Gmail credentials
 ```
 
-### 2. **Generate Analysis**
-```bash
-# Fetch dynamic stock list (run twice weekly)
-python src/dynamic_stock_fetcher.py
+## 🚀 Usage
 
-# Run trading analysis (run daily)
+### **1. Mean Reversion Analysis**
+```bash
+# Run mean reversion analysis with cached stocks
 python src/multi_stock_mean_reversion_dynamic.py
 
-# Generate email with embedded charts
-python src/email_sender_gmail_embedded.py
-```
-
-### 3. **View Results**
-- Open `output/gmail_embedded_email.html` in your browser
-- Check `output/` directory for CSV data and PNG charts
-- Review analysis artifacts uploaded to GitHub Actions
-
-## 🕐 **Automation Schedule**
-
-The system runs automatically via GitHub Actions:
-
-| **Component** | **Schedule** | **Time (ET)** | **Time (UTC)** | **Frequency** |
-|---------------|--------------|---------------|----------------|---------------|
-| **Stock Fetcher** | Mon, Thu | 4:30 AM | 9:30 AM | Twice weekly |
-| **Trading Analysis** | Mon-Fri | 5:00 AM | 10:00 AM | Daily |
-| **Email Generation** | Mon-Fri | 5:30 AM | 10:30 AM | Daily |
-
-### **Why This Schedule?**
-- **4:30 AM ET**: Stock data refresh before market analysis
-- **5:00 AM ET**: Analysis runs after overnight market movement data is available
-- **5:30 AM ET**: Email ready for morning review before market open (9:30 AM ET)
-
-## 📈 **Current Performance**
-
-### **Latest Analysis Results**
-- **Stocks Analyzed**: 100 dynamically selected popular stocks
-- **Buy Signals**: 15 oversold opportunities identified
-- **Sell Signals**: 15 overbought conditions detected
-
-### **Top Current Signals**
-**🟢 Buy Signals (Oversold)**:
-- ADBE: $391.68, RSI 36.9, Signal Strength 0.58
-- TMUS: $228.00, RSI 29.2, Signal Strength 0.57
-- ADP: $306.82, RSI 27.3, Signal Strength 0.55
-
-**🔴 Sell Signals (Overbought)**:
-- FANG: $154.91, RSI 75.3, Signal Strength 0.75
-- ORCL: $215.22, RSI 95.3, Signal Strength 0.73 ⚠️ (Extremely overbought)
-- KLAC: $867.67, RSI 79.2, Signal Strength 0.48
-
-## 🔧 **Configuration**
-
-### **Environment Variables**
-```bash
-# Optional: Email configuration
-TO_EMAIL=your-email@gmail.com
-
-# For actual email sending (not required for content generation)
-GMAIL_USER=your-email@gmail.com
-GMAIL_PASSWORD=your-app-password
-SENDGRID_API_KEY=your-sendgrid-key
-```
-
-### **GitHub Secrets**
-Set up these secrets in your GitHub repository for automation:
-- `GITHUB_TOKEN`: Automatically provided
-- `EMAIL_APP_PASSWORD`: Gmail app password (optional)
-- `SENDER_EMAIL`: Your email address (optional)
-- `RECIPIENT_EMAIL`: Recipient email address (optional)
-
-## 📊 **Technical Details**
-
-### **Stock Selection Algorithm**
-1. **Data Sources**: S&P 500, NASDAQ 100, Yahoo Finance most active, recent IPOs
-2. **Popularity Scoring**: 
-   - Market Cap Weight: 30%
-   - Volume Weight: 25%
-   - Momentum Weight: 25%
-   - Beta (Volatility) Weight: 20%
-3. **Top 100 Selection**: Highest scoring stocks across all sources
-
-### **Mean Reversion Strategy**
-```python
-# Buy Signal Criteria (Oversold)
-RSI < 30 AND Price < Lower Bollinger Band AND Z-Score < -1
-
-# Sell Signal Criteria (Overbought)  
-RSI > 70 AND Price > Upper Bollinger Band AND Z-Score > 1
-
-# Signal Strength = Combined score of all indicators
-```
-
-### **Chart Generation**
-- **Libraries**: matplotlib, seaborn for professional visualizations
-- **Embedding**: Charts converted to base64 and embedded in HTML
-- **Size Optimization**: Compressed PNG format, responsive design
-- **Compatibility**: Works with all major email clients
-
-## 📧 **Email Features**
-
-### **Embedded Charts Version**
-- **File**: `gmail_embedded_email.html` (~8.4 MB with charts)
-- **Benefits**: Self-contained, no external dependencies
-- **Charts Included**: Market overview, buy signals, sell signals
-- **Format**: Professional HTML with responsive design
-
-### **Content Types Generated**
-1. **HTML Email**: `gmail_embedded_email.html` - Full email with embedded charts
-2. **Plain Text**: `gmail_embedded_email.txt` - Text-only version
-3. **Subject Line**: `gmail_embedded_subject.txt` - Email subject
-4. **Charts**: Individual PNG files for manual use
-
-## 🚀 **Advanced Usage**
-
-### **Manual Execution**
-```bash
-# Force refresh stock list
-python src/dynamic_stock_fetcher.py
-
-# Run analysis with specific parameters
+# Force refresh stock list from all sources
 python src/multi_stock_mean_reversion_dynamic.py --refresh
+```
 
-# Generate email content only
+### **2. Momentum Analysis**
+```bash
+# Run momentum analysis with cached stocks
+python src/momentum_algorithms.py
+
+# Force refresh stock list from all sources
+python src/momentum_algorithms.py --refresh
+```
+
+### **3. Combined Strategy Analysis**
+```bash
+# Run comprehensive combined analysis
+python src/combined_strategy_analysis.py
+
+# Force refresh stock list from all sources
+python src/combined_strategy_analysis.py --refresh
+```
+
+### **4. Send Email Reports**
+```bash
+# Send automated email with latest analysis
 python src/email_sender_gmail_embedded.py
 ```
 
-### **Data Export**
-```bash
-# View top buy signals
-cat output/top_buy_signals.csv
+## 📈 Output Files
 
-# View top sell signals  
-cat output/top_sell_signals.csv
+The analysis generates comprehensive output files in the `output/` directory:
 
-# Check stock metadata
-cat output/top_stocks.json
+### **Mean Reversion Outputs**
+- `top_buy_signals.csv`: Top oversold stocks with mean reversion buy signals
+- `top_sell_signals.csv`: Top overbought stocks with mean reversion sell signals
+- `dynamic_multi_stock_signals.png`: Visual analysis charts
+
+### **Momentum Outputs**
+- `top_momentum_buy_signals.csv`: Top stocks with strong upward momentum
+- `top_momentum_sell_signals.csv`: Top stocks with strong downward momentum
+
+### **Combined Strategy Outputs**
+- `combined_strategy_analysis.csv`: Complete analysis with all signals and strategy types
+- `consensus_signals.csv`: Stocks where both strategies agree (highest confidence)
+- `momentum_dominant_signals.csv`: Momentum-driven recommendations
+- `mean_reversion_dominant_signals.csv`: Mean reversion-driven recommendations
+- `contrarian_signals.csv`: High risk/reward contrarian plays
+- `combined_strategy_analysis.png`: Comprehensive visualization dashboard
+
+### **Email Integration**
+- `gmail_embedded_email.html`: HTML email with embedded charts
+- `complete_email_message.eml`: Complete email message for sending
+
+## 🔧 Technical Architecture
+
+### **Core Components**
+
+1. **`dynamic_stock_fetcher.py`**: Dynamic stock selection and ranking
+   - Fetches from multiple sources (S&P 500, NASDAQ, Dow Jones, trending)
+   - Calculates popularity scores based on market cap, volume, momentum, beta
+   - Intelligent caching system
+
+2. **`multi_stock_mean_reversion_dynamic.py`**: Mean reversion analysis engine
+   - Bollinger Bands, RSI, Z-Score calculations
+   - Volume-weighted signals
+   - Oversold/overbought detection
+
+3. **`momentum_algorithms.py`**: Momentum analysis engine
+   - RSI momentum, MACD crossovers
+   - Price rate of change (ROC) analysis
+   - Moving average trend detection
+   - Volume confirmation
+
+4. **`combined_strategy_analysis.py`**: Strategy integration engine
+   - Signal combination algorithms
+   - Strategy type classification
+   - Confidence scoring system
+   - Comprehensive reporting
+
+5. **`email_sender_gmail_embedded.py`**: Automated reporting system
+   - Gmail integration with embedded charts
+   - HTML email generation
+   - Automated scheduling support
+
+### **Key Algorithms**
+
+#### **Mean Reversion Signal Calculation**
+```python
+def calculate_buy_signal_strength(data):
+    # Combine multiple mean reversion indicators
+    bollinger_signal = (close < bollinger_lower) * 0.3
+    rsi_signal = (rsi < 30) * 0.25
+    zscore_signal = (zscore < -2) * 0.25
+    volume_signal = (volume > avg_volume * 1.5) * 0.2
+    
+    return min(sum(signals), 1.0)
 ```
 
-### **Historical Analysis**
-All results are automatically archived in `historical_analysis/` with timestamps:
-```
-historical_analysis/
-└── 20250616_140000/
-    ├── top_buy_signals.csv
-    ├── top_sell_signals.csv
-    ├── dynamic_multi_stock_signals.png
-    └── daily_report.md
-```
-
-## 🔬 **Strategy Performance**
-
-### **Mean Reversion Effectiveness**
-- **Best Markets**: Range-bound, low volatility environments
-- **Signal Accuracy**: Higher accuracy during market consolidation periods
-- **Risk Management**: Always use stop-losses and position sizing
-- **Confirmation**: Consider volume, fundamentals, and market conditions
-
-### **Key Metrics Tracked**
-- Signal strength distribution
-- RSI effectiveness at extremes
-- Bollinger Band bounce rate
-- Z-Score reversion probability
-
-## ⚠️ **Important Disclaimers**
-
-### **Educational Purpose Only**
-- This system is for **educational and research purposes only**
-- **Not financial advice** - do your own research
-- Past performance does not guarantee future results
-- Always consult with a financial advisor before making investment decisions
-
-### **Risk Management**
-- **Use Stop Losses**: Limit downside risk on all positions
-- **Position Sizing**: Never risk more than 1-2% per trade
-- **Diversification**: Don't put all capital in one signal
-- **Market Conditions**: Strategy works best in ranging markets
-
-## 🛠️ **Dependencies**
-
-### **Core Libraries**
-```
-pandas>=2.0.0          # Data manipulation
-numpy>=1.24.0           # Numerical computing
-matplotlib>=3.7.0       # Chart generation
-yfinance>=0.2.22        # Stock data
-requests>=2.31.0        # HTTP requests
-beautifulsoup4>=4.12.0  # Web scraping
-python-dotenv==1.0.0    # Environment variables
-lxml                    # XML parsing
-sendgrid>=6.10.0        # Email sending (optional)
+#### **Momentum Signal Calculation**
+```python
+def calculate_momentum_signal_strength(data):
+    # Combine multiple momentum indicators
+    rsi_momentum = (rsi > 60 and rsi_prev <= 60) * 0.3
+    macd_crossover = (macd > signal and macd_prev <= signal_prev) * 0.4
+    price_momentum = (roc_5 > 5) * 0.2
+    ma_alignment = (price_above_ma_count >= 3) * 0.1
+    
+    return min(sum(signals), 1.0)
 ```
 
-### **System Requirements**
-- Python 3.11+
-- Internet connection for data fetching
-- 50MB+ disk space for historical data
-- GitHub repository for automation
+#### **Combined Strategy Logic**
+```python
+def calculate_combined_signal(mr_signal, mom_signal):
+    # Boost when both strategies agree
+    if mr_signal > 0.5 and mom_signal > 0.5:
+        return (mr_signal + mom_signal) / 2 * 1.2
+    
+    # Momentum breakout with mean reversion support
+    elif mom_signal > 0.7 and mr_signal > 0.2:
+        return mom_signal * 0.8 + mr_signal * 0.2
+    
+    # Individual strong signals
+    elif max(mr_signal, mom_signal) > 0.6:
+        return max(mr_signal, mom_signal) * 0.8
+    
+    return (mr_signal + mom_signal) / 2 * 0.6
+```
 
-## 📚 **Documentation**
+## 📊 Signal Interpretation Guide
 
-### **Key Files**
-- `README.md`: This comprehensive guide
-- `requirements.txt`: Python dependencies
-- `.github/workflows/daily_trading_analysis.yml`: Automation configuration
+### **Signal Strength Scale**
+- **0.8 - 1.0**: Very Strong Signal (High Probability)
+- **0.6 - 0.8**: Strong Signal (Good Probability)
+- **0.4 - 0.6**: Moderate Signal (Medium Probability)
+- **0.2 - 0.4**: Weak Signal (Low Probability)
+- **0.0 - 0.2**: Very Weak Signal (Very Low Probability)
 
-### **Generated Reports**
-- `output/daily_report.md`: Daily analysis summary (GitHub)
-- `output/gmail_embedded_email.html`: Email report with charts
-- `historical_analysis/*/`: Archived analysis results
+### **Strategy Types**
+- **CONSENSUS**: Both mean reversion and momentum agree (Highest Confidence)
+- **MOMENTUM**: Trend-following signals dominate (Good for trending markets)
+- **MEAN_REVERSION**: Contrarian signals dominate (Good for range-bound markets)
+- **CONTRARIAN**: Strategies disagree (High risk/reward, requires careful analysis)
+- **WEAK**: Low signal strength across all strategies
 
-## 🤝 **Contributing**
+### **Confidence Scores**
+- **0.9**: High confidence (Both strategies agree)
+- **0.75**: Medium-high confidence (Strong individual signals)
+- **0.6**: Medium confidence (Moderate signals)
+- **0.4**: Lower confidence (Contrarian signals)
+- **0.3**: Low confidence (Weak signals)
 
-This is a personal trading analysis project. Feel free to fork and modify for your own use.
+## ⚠️ Risk Disclaimer
 
-### **Customization Ideas**
-- Add more technical indicators (MACD, Stochastic, etc.)
-- Implement different trading strategies (momentum, breakout, etc.)
-- Add fundamental analysis filters
-- Integrate with broker APIs for automated execution
-- Add Slack/Discord notifications
+This software is for educational and research purposes only. It is not financial advice. Always:
+- Conduct your own research
+- Consider your risk tolerance
+- Diversify your investments
+- Consult with financial professionals
+- Never invest more than you can afford to lose
 
-## 📝 **License**
+Past performance does not guarantee future results. All trading involves risk of loss.
 
-This project is for educational purposes. Use at your own risk.
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit pull requests or open issues for:
+- New technical indicators
+- Additional data sources
+- Performance optimizations
+- Bug fixes
+- Documentation improvements
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 🎉 **Latest Updates**
-
-### **Version 2.0 Features** (Current)
-- ✅ Dynamic stock discovery from multiple sources  
-- ✅ Enhanced technical analysis with multiple indicators
-- ✅ Professional chart visualizations with embedded PNG support
-- ✅ Automated GitHub Actions workflow with proper scheduling
-- ✅ Beautiful HTML email reports with embedded charts
-- ✅ Historical data archiving and artifact management
-- ✅ Comprehensive error handling and logging
-
-### **Future Enhancements**
-- 🔄 Real-time signal monitoring
-- 📱 Mobile-responsive dashboard
-- 🔔 Instant notifications for high-confidence signals
-- 🤖 AI-powered signal confidence scoring
-- 📊 Backtesting framework with performance metrics
-
----
-
-**Generated by Glowing Vibe Trading Analysis System** | **Last Updated**: 2025-06-16 
+**Built with ❤️ for the trading community** 
