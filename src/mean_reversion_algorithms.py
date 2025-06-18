@@ -10,7 +10,7 @@ import os
 from dynamic_stock_fetcher import DynamicStockFetcher
 warnings.filterwarnings('ignore')
 
-class DynamicMultiStockMeanReversion:
+class MeanReversionAlgorithms:
     def __init__(self, lookback_days=252, num_stocks=100):
         self.lookback_days = lookback_days
         self.num_stocks = num_stocks
@@ -265,14 +265,13 @@ class DynamicMultiStockMeanReversion:
         if not self.popular_stocks:
             self.fetch_dynamic_stock_list()
         
-        print(f"\nAnalyzing {len(self.popular_stocks)} dynamically fetched stocks for mean reversion signals...")
-        print("=" * 80)
+        # Suppress intermediate output - will be shown in combined analysis only
         
         results = []
         processed = 0
         
         for symbol in self.popular_stocks:
-            print(f"Processing {symbol}... ({processed + 1}/{len(self.popular_stocks)})", end='\r')
+            # Silent processing for cleaner output
             
             # Fetch data
             data = self.fetch_stock_data(symbol)
@@ -313,7 +312,7 @@ class DynamicMultiStockMeanReversion:
             processed += 1
             time.sleep(0.02)  # Small delay to avoid rate limiting
         
-        print(f"\nCompleted analysis of {processed} stocks")
+        # Analysis complete - results ready for processing
         
         # Create DataFrame with results
         self.signals_df = pd.DataFrame(results)
@@ -425,10 +424,11 @@ class DynamicMultiStockMeanReversion:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.show()
     
-    def run_analysis(self, force_refresh_stocks=False):
+    def run_analysis(self, force_refresh_stocks=False, silent=False):
         """Run the complete dynamic multi-stock analysis"""
-        print("Dynamic Multi-Stock Mean Reversion Analysis")
-        print("=" * 60)
+        if not silent:
+            print("Dynamic Multi-Stock Mean Reversion Analysis")
+            print("=" * 60)
         
         # Fetch dynamic stock list first (will use cache if available)
         self.fetch_dynamic_stock_list(force_refresh=force_refresh_stocks)
@@ -437,38 +437,40 @@ class DynamicMultiStockMeanReversion:
         signals_df = self.analyze_all_stocks()
         
         if signals_df is None or len(signals_df) == 0:
-            print("No valid signals found!")
+            if not silent:
+                print("No valid signals found!")
             return
         
         # Get top signals
         top_buys, top_sells = self.get_top_signals(15)
         
-        # Display results
-        print("\nTOP 15 BUY SIGNALS (Strong Mean Reversion - Oversold)")
-        print("=" * 90)
-        print(top_buys[['Symbol', 'Current_Price', 'Buy_Signal_Strength', 'RSI', 
-                       'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
-        
-        print("\nTOP 15 SELL SIGNALS (Strong Mean Reversion - Overbought)")
-        print("=" * 90)
-        print(top_sells[['Symbol', 'Current_Price', 'Sell_Signal_Strength', 'RSI', 
-                        'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
-        
-        # Plot overview
-        self.plot_signals(top_buys, top_sells)
-        
-        # Save results to CSV
-        buy_signals_path = os.path.join(self.output_dir, 'top_buy_signals.csv')
-        sell_signals_path = os.path.join(self.output_dir, 'top_sell_signals.csv')
-        charts_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
-        
-        top_buys.to_csv(buy_signals_path, index=False)
-        top_sells.to_csv(sell_signals_path, index=False)
-        
-        print("\nResults saved to output files:")
-        print(f"- {buy_signals_path}")
-        print(f"- {sell_signals_path}")
-        print(f"- {charts_path}")
+        if not silent:
+            # Display results
+            print("\nTOP 15 BUY SIGNALS (Strong Mean Reversion - Oversold)")
+            print("=" * 90)
+            print(top_buys[['Symbol', 'Current_Price', 'Buy_Signal_Strength', 'RSI', 
+                           'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
+            
+            print("\nTOP 15 SELL SIGNALS (Strong Mean Reversion - Overbought)")
+            print("=" * 90)
+            print(top_sells[['Symbol', 'Current_Price', 'Sell_Signal_Strength', 'RSI', 
+                            'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
+            
+            # Plot overview
+            self.plot_signals(top_buys, top_sells)
+            
+            # Save results to CSV
+            buy_signals_path = os.path.join(self.output_dir, 'top_buy_signals.csv')
+            sell_signals_path = os.path.join(self.output_dir, 'top_sell_signals.csv')
+            charts_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
+            
+            top_buys.to_csv(buy_signals_path, index=False)
+            top_sells.to_csv(sell_signals_path, index=False)
+            
+            print("\nResults saved to output files:")
+            print(f"- {buy_signals_path}")
+            print(f"- {sell_signals_path}")
+            print(f"- {charts_path}")
         
         return top_buys, top_sells
 
@@ -484,7 +486,7 @@ def main():
     else:
         print("📂 Cache mode: Will use existing top_stocks.json if available")
     
-    analyzer = DynamicMultiStockMeanReversion(lookback_days=252, num_stocks=100)
+    analyzer = MeanReversionAlgorithms(lookback_days=252, num_stocks=100)
     top_buys, top_sells = analyzer.run_analysis(force_refresh_stocks=force_refresh)
     
     print("\nDynamic analysis complete!")
@@ -496,7 +498,7 @@ def main():
     print("✅ Generated comprehensive visualizations")
     print("✅ Saved results to files")
     
-    print("\n💡 Tip: Use 'python multi_stock_mean_reversion_dynamic.py --refresh' to force fetch fresh stocks")
+    print("\n💡 Tip: Use 'python mean_reversion_algorithms.py --refresh' to force fetch fresh stocks")
 
 if __name__ == "__main__":
     main() 

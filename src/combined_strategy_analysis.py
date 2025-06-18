@@ -7,7 +7,7 @@ import warnings
 import time
 import json
 import os
-from multi_stock_mean_reversion_dynamic import DynamicMultiStockMeanReversion
+from mean_reversion_algorithms import MeanReversionAlgorithms
 from momentum_algorithms import MomentumAlgorithms
 warnings.filterwarnings('ignore')
 
@@ -18,7 +18,7 @@ class CombinedStrategyAnalysis:
         self.output_dir = 'output'
         
         # Initialize both analyzers
-        self.mean_reversion_analyzer = DynamicMultiStockMeanReversion(lookback_days, num_stocks)
+        self.mean_reversion_analyzer = MeanReversionAlgorithms(lookback_days, num_stocks)
         self.momentum_analyzer = MomentumAlgorithms(lookback_days, num_stocks)
         
         # Results storage
@@ -31,13 +31,13 @@ class CombinedStrategyAnalysis:
         print("🚀 COMBINED STRATEGY ANALYSIS: Mean Reversion + Momentum")
         print("=" * 80)
         
-        # Run mean reversion analysis
+        # Run mean reversion analysis (silently to avoid duplicate output)
         print("\n📈 Running Mean Reversion Analysis...")
-        mr_buy_signals, mr_sell_signals = self.mean_reversion_analyzer.run_analysis(force_refresh_stocks)
+        mr_buy_signals, mr_sell_signals = self.mean_reversion_analyzer.run_analysis(force_refresh_stocks, silent=True)
         
-        # Run momentum analysis  
+        # Run momentum analysis (silently to avoid duplicate output)
         print("\n📊 Running Momentum Analysis...")
-        mom_buy_signals, mom_sell_signals = self.momentum_analyzer.run_momentum_analysis(force_refresh_stocks)
+        mom_buy_signals, mom_sell_signals = self.momentum_analyzer.run_momentum_analysis(force_refresh_stocks, silent=True)
         
         # Combine the results
         print("\n🔄 Combining Strategy Results...")
@@ -288,63 +288,150 @@ class CombinedStrategyAnalysis:
         print(f"- Complete analysis: combined_strategy_analysis.csv")
     
     def plot_combined_analysis(self):
-        """Create visualization of combined analysis results"""
+        """Create comprehensive visualization of combined analysis results with clear buy/sell signals"""
         if self.combined_signals_df is None:
             return
         
-        fig, axes = plt.subplots(2, 2, figsize=(20, 16))
+        fig, axes = plt.subplots(2, 3, figsize=(24, 16))
         
-        # Plot 1: Strategy Type Distribution
+        # Get top buy and sell signals
+        top_buy_signals = self.combined_signals_df.nlargest(15, 'Combined_Buy_Signal')
+        top_sell_signals = self.combined_signals_df.nlargest(15, 'Combined_Sell_Signal')
+        
+        # Plot 1: Top Buy Signals
         ax1 = axes[0, 0]
+        if len(top_buy_signals) > 0:
+            buy_bars = ax1.barh(range(len(top_buy_signals[:10])), 
+                               top_buy_signals['Combined_Buy_Signal'][:10], 
+                               color='green', alpha=0.8)
+            ax1.set_yticks(range(len(top_buy_signals[:10])))
+            ax1.set_yticklabels(top_buy_signals['Symbol'][:10])
+            ax1.set_xlabel('Combined Buy Signal Strength')
+            ax1.set_title('🟢 TOP 10 BUY SIGNALS', fontsize=14, fontweight='bold', color='green')
+            ax1.grid(True, alpha=0.3)
+            
+            # Add value labels on bars
+            for i, (bar, value) in enumerate(zip(buy_bars, top_buy_signals['Combined_Buy_Signal'][:10])):
+                ax1.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, 
+                        f'{value:.2f}', ha='left', va='center', fontweight='bold')
+        else:
+            ax1.text(0.5, 0.5, 'No Strong Buy Signals', ha='center', va='center', 
+                    transform=ax1.transAxes, fontsize=12)
+            ax1.set_title('🟢 TOP 10 BUY SIGNALS', fontsize=14, fontweight='bold')
+        
+        # Plot 2: Top Sell Signals
+        ax2 = axes[0, 1]
+        if len(top_sell_signals) > 0:
+            sell_bars = ax2.barh(range(len(top_sell_signals[:10])), 
+                                top_sell_signals['Combined_Sell_Signal'][:10], 
+                                color='red', alpha=0.8)
+            ax2.set_yticks(range(len(top_sell_signals[:10])))
+            ax2.set_yticklabels(top_sell_signals['Symbol'][:10])
+            ax2.set_xlabel('Combined Sell Signal Strength')
+            ax2.set_title('🔴 TOP 10 SELL SIGNALS', fontsize=14, fontweight='bold', color='red')
+            ax2.grid(True, alpha=0.3)
+            
+            # Add value labels on bars
+            for i, (bar, value) in enumerate(zip(sell_bars, top_sell_signals['Combined_Sell_Signal'][:10])):
+                ax2.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, 
+                        f'{value:.2f}', ha='left', va='center', fontweight='bold')
+        else:
+            ax2.text(0.5, 0.5, 'No Strong Sell Signals', ha='center', va='center', 
+                    transform=ax2.transAxes, fontsize=12)
+            ax2.set_title('🔴 TOP 10 SELL SIGNALS', fontsize=14, fontweight='bold')
+        
+        # Plot 3: Strategy Type Distribution
+        ax3 = axes[0, 2]
         strategy_counts = self.combined_signals_df['Strategy_Type'].value_counts()
         colors = ['#2E8B57', '#FF6347', '#4169E1', '#FFD700', '#8A2BE2']
-        wedges, texts, autotexts = ax1.pie(strategy_counts.values, labels=strategy_counts.index, 
+        wedges, texts, autotexts = ax3.pie(strategy_counts.values, labels=strategy_counts.index, 
                                           autopct='%1.1f%%', colors=colors[:len(strategy_counts)])
-        ax1.set_title('Strategy Type Distribution', fontsize=14, fontweight='bold')
+        ax3.set_title('📊 Strategy Type Distribution', fontsize=14, fontweight='bold')
         
-        # Plot 2: Signal Strength vs Confidence Score
-        ax2 = axes[0, 1]
-        scatter = ax2.scatter(self.combined_signals_df['Signal_Strength'], 
-                             self.combined_signals_df['Confidence_Score'],
-                             c=self.combined_signals_df['Strategy_Type'].astype('category').cat.codes,
-                             alpha=0.6, s=60, cmap='Set1')
-        ax2.set_xlabel('Signal Strength')
-        ax2.set_ylabel('Confidence Score')
-        ax2.set_title('Signal Strength vs Confidence Score', fontsize=14, fontweight='bold')
-        ax2.grid(True, alpha=0.3)
+        # Plot 4: Buy vs Sell Signal Strength Scatter
+        ax4 = axes[1, 0]
+        scatter = ax4.scatter(self.combined_signals_df['Combined_Buy_Signal'], 
+                             self.combined_signals_df['Combined_Sell_Signal'],
+                             c=self.combined_signals_df['Confidence_Score'],
+                             alpha=0.7, s=80, cmap='RdYlGn', edgecolors='black', linewidth=0.5)
+        ax4.set_xlabel('Combined Buy Signal Strength')
+        ax4.set_ylabel('Combined Sell Signal Strength')
+        ax4.set_title('📈 Buy vs Sell Signal Strength', fontsize=14, fontweight='bold')
+        ax4.grid(True, alpha=0.3)
         
-        # Plot 3: Mean Reversion vs Momentum Signals
-        ax3 = axes[1, 0]
+        # Add quadrant labels
+        ax4.text(0.8, 0.8, 'HIGH SELL\nLOW BUY', transform=ax4.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="red", alpha=0.3))
+        ax4.text(0.8, 0.2, 'HIGH BUY\nLOW SELL', transform=ax4.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="green", alpha=0.3))
+        
+        plt.colorbar(scatter, ax=ax4, label='Confidence Score')
+        
+        # Plot 5: Mean Reversion vs Momentum Signals
+        ax5 = axes[1, 1]
         mr_signals = self.combined_signals_df['MR_Buy_Signal'] - self.combined_signals_df['MR_Sell_Signal']
         mom_signals = self.combined_signals_df['Mom_Buy_Signal'] - self.combined_signals_df['Mom_Sell_Signal']
         
-        scatter = ax3.scatter(mr_signals, mom_signals, 
-                             c=self.combined_signals_df['Confidence_Score'],
-                             alpha=0.6, s=60, cmap='RdYlGn')
-        ax3.set_xlabel('Mean Reversion Signal (Buy - Sell)')
-        ax3.set_ylabel('Momentum Signal (Buy - Sell)')
-        ax3.set_title('Mean Reversion vs Momentum Signals', fontsize=14, fontweight='bold')
-        ax3.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-        ax3.axvline(x=0, color='k', linestyle='--', alpha=0.5)
-        ax3.grid(True, alpha=0.3)
-        plt.colorbar(scatter, ax=ax3, label='Confidence Score')
+        scatter = ax5.scatter(mr_signals, mom_signals, 
+                             c=self.combined_signals_df['Signal_Strength'],
+                             alpha=0.7, s=80, cmap='viridis', edgecolors='black', linewidth=0.5)
+        ax5.set_xlabel('Mean Reversion Signal (Buy - Sell)')
+        ax5.set_ylabel('Momentum Signal (Buy - Sell)')
+        ax5.set_title('🔄 Mean Reversion vs Momentum', fontsize=14, fontweight='bold')
+        ax5.axhline(y=0, color='k', linestyle='--', alpha=0.5)
+        ax5.axvline(x=0, color='k', linestyle='--', alpha=0.5)
+        ax5.grid(True, alpha=0.3)
         
-        # Plot 4: Top Consensus Signals
-        ax4 = axes[1, 1]
+        # Add quadrant labels
+        ax5.text(0.8, 0.8, 'MOMENTUM\nBUY', transform=ax5.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="lightgreen", alpha=0.7))
+        ax5.text(0.2, 0.8, 'CONTRARIAN\nSIGNALS', transform=ax5.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="yellow", alpha=0.7))
+        ax5.text(0.8, 0.2, 'CONTRARIAN\nSIGNALS', transform=ax5.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="yellow", alpha=0.7))
+        ax5.text(0.2, 0.2, 'MEAN REV\nBUY', transform=ax5.transAxes, 
+                ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", facecolor="lightblue", alpha=0.7))
+        
+        plt.colorbar(scatter, ax=ax5, label='Overall Signal Strength')
+        
+        # Plot 6: Top Consensus Signals (if any)
+        ax6 = axes[1, 2]
         consensus_signals = self.combined_signals_df[self.combined_signals_df['Strategy_Type'] == 'CONSENSUS']
         if len(consensus_signals) > 0:
             top_consensus = consensus_signals.nlargest(10, 'Signal_Strength')
-            bars = ax4.barh(range(len(top_consensus)), top_consensus['Signal_Strength'], 
-                           color='green', alpha=0.7)
-            ax4.set_yticks(range(len(top_consensus)))
-            ax4.set_yticklabels(top_consensus['Symbol'])
-            ax4.set_xlabel('Combined Signal Strength')
-            ax4.set_title('Top 10 Consensus Signals', fontsize=14, fontweight='bold')
-            ax4.grid(True, alpha=0.3)
+            bars = ax6.barh(range(len(top_consensus)), top_consensus['Signal_Strength'], 
+                           color='purple', alpha=0.8)
+            ax6.set_yticks(range(len(top_consensus)))
+            ax6.set_yticklabels(top_consensus['Symbol'])
+            ax6.set_xlabel('Combined Signal Strength')
+            ax6.set_title('🎯 TOP CONSENSUS SIGNALS', fontsize=14, fontweight='bold', color='purple')
+            ax6.grid(True, alpha=0.3)
+            
+            # Add value labels
+            for i, (bar, value) in enumerate(zip(bars, top_consensus['Signal_Strength'])):
+                ax6.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, 
+                        f'{value:.2f}', ha='left', va='center', fontweight='bold')
         else:
-            ax4.text(0.5, 0.5, 'No Consensus Signals Found', ha='center', va='center', 
-                    transform=ax4.transAxes, fontsize=12)
-            ax4.set_title('Top Consensus Signals', fontsize=14, fontweight='bold')
+            # Show top momentum signals instead
+            momentum_signals = self.combined_signals_df[self.combined_signals_df['Strategy_Type'] == 'MOMENTUM']
+            if len(momentum_signals) > 0:
+                top_momentum = momentum_signals.nlargest(8, 'Signal_Strength')
+                bars = ax6.barh(range(len(top_momentum)), top_momentum['Signal_Strength'], 
+                               color='orange', alpha=0.8)
+                ax6.set_yticks(range(len(top_momentum)))
+                ax6.set_yticklabels(top_momentum['Symbol'])
+                ax6.set_xlabel('Signal Strength')
+                ax6.set_title('🚀 TOP MOMENTUM SIGNALS', fontsize=14, fontweight='bold', color='orange')
+                ax6.grid(True, alpha=0.3)
+                
+                # Add value labels
+                for i, (bar, value) in enumerate(zip(bars, top_momentum['Signal_Strength'])):
+                    ax6.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2, 
+                            f'{value:.2f}', ha='left', va='center', fontweight='bold')
+            else:
+                ax6.text(0.5, 0.5, 'No Strong Signals Found', ha='center', va='center', 
+                        transform=ax6.transAxes, fontsize=12)
+                ax6.set_title('🎯 TOP SIGNALS', fontsize=14, fontweight='bold')
         
         plt.tight_layout()
         output_path = os.path.join(self.output_dir, 'combined_strategy_analysis.png')
@@ -352,6 +439,23 @@ class CombinedStrategyAnalysis:
         plt.show()
         
         print(f"\n📊 Visualization saved: {output_path}")
+        
+        # Print summary of top signals
+        print(f"\n📈 TOP BUY SIGNALS SUMMARY:")
+        print("-" * 50)
+        if len(top_buy_signals) > 0:
+            for i, row in top_buy_signals.head(5).iterrows():
+                print(f"  {row['Symbol']}: ${row['Current_Price']:.2f} | Signal: {row['Combined_Buy_Signal']:.3f} | {row['Strategy_Type']}")
+        else:
+            print("  No strong buy signals found")
+        
+        print(f"\n📉 TOP SELL SIGNALS SUMMARY:")
+        print("-" * 50)
+        if len(top_sell_signals) > 0:
+            for i, row in top_sell_signals.head(5).iterrows():
+                print(f"  {row['Symbol']}: ${row['Current_Price']:.2f} | Signal: {row['Combined_Sell_Signal']:.3f} | {row['Strategy_Type']}")
+        else:
+            print("  No strong sell signals found")
 
 def main():
     """Main function for combined strategy analysis"""

@@ -20,10 +20,11 @@ A comprehensive stock analysis platform that combines **Mean Reversion** and **M
 - **Multi-timeframe Analysis**: 5-day, 10-day, 20-day momentum with 252-day lookback
 
 ### **Comprehensive Reporting**
-- **Visual Charts**: Professional matplotlib visualizations for all analyses
-- **CSV Exports**: Detailed signal data for further analysis
+- **Professional Visualizations**: 6-panel combined strategy dashboard with buy/sell signals
+- **CSV Exports**: Detailed signal data with strategy types and confidence scores
 - **Strategy Classification**: CONSENSUS, MOMENTUM, MEAN_REVERSION, CONTRARIAN, WEAK
-- **Email Integration**: Automated Gmail reports with embedded charts
+- **Clean Output**: Individual algorithms run silently, final results only from combined analysis
+- **Email Integration**: Automated reports with embedded multi-strategy dashboard
 
 ## 📊 Strategy Overview
 
@@ -61,15 +62,31 @@ cp .env.example .env
 # Edit .env with your Gmail credentials
 ```
 
-## 🚀 Usage
+## ⚡ Quick Start
+
+For the best results, run the **Combined Strategy Analysis** which includes both mean reversion and momentum strategies:
+
+```bash
+# 1. Run complete analysis (recommended for daily use)
+python src/combined_strategy_analysis.py
+
+# 2. Generate email report with charts
+python src/email_sender_gmail_embedded.py
+
+# 3. View results in output/ directory
+```
+
+This generates comprehensive analysis with strategy consensus, confidence scoring, and professional visualizations.
+
+## 🚀 Detailed Usage
 
 ### **1. Mean Reversion Analysis**
 ```bash
 # Run mean reversion analysis with cached stocks
-python src/multi_stock_mean_reversion_dynamic.py
+python src/mean_reversion_algorithms.py
 
 # Force refresh stock list from all sources
-python src/multi_stock_mean_reversion_dynamic.py --refresh
+python src/mean_reversion_algorithms.py --refresh
 ```
 
 ### **2. Momentum Analysis**
@@ -92,7 +109,18 @@ python src/combined_strategy_analysis.py --refresh
 
 ### **4. Send Email Reports**
 ```bash
-# Send automated email with latest analysis
+# Generate combined strategy email report (requires combined analysis first)
+python src/email_sender_gmail_embedded.py
+```
+
+
+
+### **Daily Analysis Workflow (Recommended)**
+```bash
+# Run complete combined analysis (includes both strategies)
+python src/combined_strategy_analysis.py
+
+# Generate email report with embedded charts
 python src/email_sender_gmail_embedded.py
 ```
 
@@ -118,8 +146,9 @@ The analysis generates comprehensive output files in the `output/` directory:
 - `combined_strategy_analysis.png`: Comprehensive visualization dashboard
 
 ### **Email Integration**
-- `gmail_embedded_email.html`: HTML email with embedded charts
-- `complete_email_message.eml`: Complete email message for sending
+- `gmail_embedded_email.html`: HTML email with embedded combined strategy dashboard
+- `gmail_embedded_email.txt`: Plain text summary of combined analysis
+- `gmail_embedded_subject.txt`: Email subject line
 
 ## 🔧 Technical Architecture
 
@@ -130,7 +159,7 @@ The analysis generates comprehensive output files in the `output/` directory:
    - Calculates popularity scores based on market cap, volume, momentum, beta
    - Intelligent caching system
 
-2. **`multi_stock_mean_reversion_dynamic.py`**: Mean reversion analysis engine
+2. **`mean_reversion_algorithms.py`**: Mean reversion analysis engine
    - Bollinger Bands, RSI, Z-Score calculations
    - Volume-weighted signals
    - Oversold/overbought detection
@@ -148,9 +177,9 @@ The analysis generates comprehensive output files in the `output/` directory:
    - Comprehensive reporting
 
 5. **`email_sender_gmail_embedded.py`**: Automated reporting system
-   - Gmail integration with embedded charts
-   - HTML email generation
-   - Automated scheduling support
+   - Combined strategy email reports with embedded dashboard
+   - HTML email generation with multi-strategy analysis
+   - Strategy breakdown and confidence scoring in emails
 
 ### **Key Algorithms**
 

@@ -25,11 +25,17 @@ class GmailEmailSender:
         
         # File paths
         self.output_dir = 'output'
-        self.buy_signals_file = os.path.join(self.output_dir, 'top_buy_signals.csv')
-        self.sell_signals_file = os.path.join(self.output_dir, 'top_sell_signals.csv')
+        # Updated to use combined strategy analysis files
+        self.combined_analysis_file = os.path.join(self.output_dir, 'combined_strategy_analysis.csv')
+        self.consensus_signals_file = os.path.join(self.output_dir, 'consensus_signals.csv')
+        self.momentum_signals_file = os.path.join(self.output_dir, 'momentum_dominant_signals.csv')
+        self.mean_reversion_signals_file = os.path.join(self.output_dir, 'mean_reversion_dominant_signals.csv')
+        self.contrarian_signals_file = os.path.join(self.output_dir, 'contrarian_signals.csv')
         self.stocks_metadata_file = os.path.join(self.output_dir, 'top_stocks.json')
         
-        # PNG chart files
+        # PNG chart files - updated to use combined strategy analysis
+        self.combined_chart = os.path.join(self.output_dir, 'combined_strategy_analysis.png')
+        # Keep fallback to old charts if available
         self.buy_chart = os.path.join(self.output_dir, 'detailed_buy_signals.png')
         self.sell_chart = os.path.join(self.output_dir, 'detailed_sell_signals.png')
         self.overview_chart = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
@@ -38,22 +44,25 @@ class GmailEmailSender:
         """Check if all prerequisites are met"""
         issues = []
         
-        if not os.path.exists(self.buy_signals_file):
-            issues.append(f"Buy signals file not found: {self.buy_signals_file}")
+        if not os.path.exists(self.combined_analysis_file):
+            issues.append(f"Combined analysis file not found: {self.combined_analysis_file}")
         
-        if not os.path.exists(self.sell_signals_file):
-            issues.append(f"Sell signals file not found: {self.sell_signals_file}")
+        if not os.path.exists(self.combined_chart):
+            issues.append(f"Combined strategy chart not found: {self.combined_chart}")
         
         return issues
     
     def load_analysis_data(self):
-        """Load the latest analysis results"""
+        """Load the latest combined strategy analysis results"""
         try:
-            # Load buy signals
-            buy_signals = pd.read_csv(self.buy_signals_file) if os.path.exists(self.buy_signals_file) else pd.DataFrame()
+            # Load combined analysis data
+            combined_data = pd.read_csv(self.combined_analysis_file) if os.path.exists(self.combined_analysis_file) else pd.DataFrame()
             
-            # Load sell signals  
-            sell_signals = pd.read_csv(self.sell_signals_file) if os.path.exists(self.sell_signals_file) else pd.DataFrame()
+            # Load individual strategy files (if available)
+            consensus_signals = pd.read_csv(self.consensus_signals_file) if os.path.exists(self.consensus_signals_file) else pd.DataFrame()
+            momentum_signals = pd.read_csv(self.momentum_signals_file) if os.path.exists(self.momentum_signals_file) else pd.DataFrame()
+            mean_reversion_signals = pd.read_csv(self.mean_reversion_signals_file) if os.path.exists(self.mean_reversion_signals_file) else pd.DataFrame()
+            contrarian_signals = pd.read_csv(self.contrarian_signals_file) if os.path.exists(self.contrarian_signals_file) else pd.DataFrame()
             
             # Load stock metadata
             stock_metadata = []
@@ -61,11 +70,25 @@ class GmailEmailSender:
                 with open(self.stocks_metadata_file, 'r') as f:
                     stock_metadata = json.load(f)
             
-            return buy_signals, sell_signals, stock_metadata
+            return {
+                'combined': combined_data,
+                'consensus': consensus_signals,
+                'momentum': momentum_signals,
+                'mean_reversion': mean_reversion_signals,
+                'contrarian': contrarian_signals,
+                'metadata': stock_metadata
+            }
             
         except Exception as e:
             print(f"❌ Error loading analysis data: {e}")
-            return pd.DataFrame(), pd.DataFrame(), []
+            return {
+                'combined': pd.DataFrame(),
+                'consensus': pd.DataFrame(),
+                'momentum': pd.DataFrame(),
+                'mean_reversion': pd.DataFrame(),
+                'contrarian': pd.DataFrame(),
+                'metadata': []
+            }
 
     def image_to_base64(self, image_path):
         """Convert image to base64 string for HTML embedding"""
@@ -76,12 +99,26 @@ class GmailEmailSender:
             print(f"⚠️ Error converting {image_path} to base64: {e}")
             return None
 
-    def generate_html_email(self, buy_signals, sell_signals, stock_metadata):
+    def generate_html_email(self, analysis_data):
         """Generate HTML email content with embedded charts"""
         current_date = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
         
+        # Extract data from analysis_data
+        combined_data = analysis_data['combined']
+        consensus_signals = analysis_data['consensus']
+        momentum_signals = analysis_data['momentum']
+        mean_reversion_signals = analysis_data['mean_reversion']
+        contrarian_signals = analysis_data['contrarian']
+        stock_metadata = analysis_data['metadata']
+        
+        # Get top buy and sell signals from combined data
+        top_buy_signals = combined_data.nlargest(10, 'Combined_Buy_Signal') if not combined_data.empty else pd.DataFrame()
+        top_sell_signals = combined_data.nlargest(10, 'Combined_Sell_Signal') if not combined_data.empty else pd.DataFrame()
+        
         # Convert charts to base64 for embedding
         print("🖼️ Converting PNG charts to base64...")
+        combined_chart_b64 = self.image_to_base64(self.combined_chart) if os.path.exists(self.combined_chart) else None
+        # Fallback to old charts if combined chart not available
         buy_chart_b64 = self.image_to_base64(self.buy_chart) if os.path.exists(self.buy_chart) else None
         sell_chart_b64 = self.image_to_base64(self.sell_chart) if os.path.exists(self.sell_chart) else None
         overview_chart_b64 = self.image_to_base64(self.overview_chart) if os.path.exists(self.overview_chart) else None
@@ -214,29 +251,48 @@ class GmailEmailSender:
         
         <div class="content">
             <div class="summary">
-                <h2>📊 Market Analysis Summary</h2>
+                <h2>📊 Combined Strategy Analysis Summary</h2>
                 <div class="metrics">
                     <div class="metric">
                         <div class="metric-label">Stocks Analyzed</div>
-                        <div class="metric-value">{len(stock_metadata)}</div>
+                        <div class="metric-value">{len(combined_data)}</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-label">Buy Signals</div>
-                        <div class="metric-value" style="color: #28a745;">{len(buy_signals)}</div>
+                        <div class="metric-label">Strong Buy Signals</div>
+                        <div class="metric-value" style="color: #28a745;">{len(top_buy_signals)}</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-label">Sell Signals</div>
-                        <div class="metric-value" style="color: #dc3545;">{len(sell_signals)}</div>
+                        <div class="metric-label">Strong Sell Signals</div>
+                        <div class="metric-value" style="color: #dc3545;">{len(top_sell_signals)}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Consensus Signals</div>
+                        <div class="metric-value" style="color: #6f42c1;">{len(consensus_signals)}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Momentum Signals</div>
+                        <div class="metric-value" style="color: #fd7e14;">{len(momentum_signals)}</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Mean Reversion</div>
+                        <div class="metric-value" style="color: #20c997;">{len(mean_reversion_signals)}</div>
                     </div>
                 </div>
                 <p style="margin-top: 20px; color: #6c757d;">
-                    <strong>Strategy:</strong> Mean Reversion &nbsp;•&nbsp; 
-                    <strong>Sources:</strong> S&P 500, NASDAQ 100, Most Active, Recent IPOs
+                    <strong>Strategies:</strong> Mean Reversion + Momentum Analysis &nbsp;•&nbsp; 
+                    <strong>Sources:</strong> S&P 500, NASDAQ 100, Most Active, Recent IPOs &nbsp;•&nbsp;
+                    <strong>Confidence Scoring:</strong> Multi-strategy validation
                 </p>
             </div>"""
 
-        # Market Overview Chart
-        if overview_chart_b64:
+        # Combined Strategy Chart
+        if combined_chart_b64:
+            html_content += f"""
+            <div class="chart-container">
+                <h3>📊 Combined Strategy Analysis Dashboard</h3>
+                <img src="data:image/png;base64,{combined_chart_b64}" alt="Combined Strategy Analysis Chart" />
+            </div>"""
+        elif overview_chart_b64:
             html_content += f"""
             <div class="chart-container">
                 <h3>📊 Market Overview</h3>
@@ -244,115 +300,119 @@ class GmailEmailSender:
             </div>"""
 
         # Buy Signals Section
-        if not buy_signals.empty:
+        if not top_buy_signals.empty:
             html_content += """
             <div class="signals-section buy-signals">
                 <div class="section-header">
-                    <h2>🟢 Top Buy Signals (Oversold Opportunities)</h2>
+                    <h2>🟢 Top Combined Buy Signals</h2>
                 </div>
                 <table class="signal-table">
                     <thead>
                         <tr>
                             <th>Symbol</th>
                             <th>Price</th>
-                            <th>Signal Strength</th>
+                            <th>Buy Signal</th>
+                            <th>Strategy Type</th>
+                            <th>Confidence</th>
                             <th>RSI</th>
-                            <th>5-Day Change</th>
                         </tr>
                     </thead>
                     <tbody>"""
             
-            for _, row in buy_signals.head(5).iterrows():
-                change_class = "change-negative" if row['Price_Change_5d'] < 0 else "change-positive"
+            for _, row in top_buy_signals.head(8).iterrows():
+                # Determine strategy type color
+                strategy_color = {
+                    'CONSENSUS': '#6f42c1',
+                    'MOMENTUM': '#fd7e14', 
+                    'MEAN_REVERSION': '#20c997',
+                    'CONTRARIAN': '#ffc107',
+                    'WEAK': '#6c757d'
+                }.get(row['Strategy_Type'], '#6c757d')
+                
                 html_content += f"""
                         <tr class="buy-row">
                             <td class="symbol">{row['Symbol']}</td>
                             <td class="price">${row['Current_Price']:.2f}</td>
-                            <td class="signal-strength">{row['Buy_Signal_Strength']:.2f}</td>
+                            <td class="signal-strength">{row['Combined_Buy_Signal']:.3f}</td>
+                            <td style="color: {strategy_color}; font-weight: 600;">{row['Strategy_Type']}</td>
+                            <td class="signal-strength">{row['Confidence_Score']:.2f}</td>
                             <td class="rsi">{row['RSI']:.1f}</td>
-                            <td class="{change_class}">{row['Price_Change_5d']:+.1f}%</td>
                         </tr>"""
             
             html_content += """
                     </tbody>
-                </table>"""
-            
-            # Buy Signals Chart
-            if buy_chart_b64:
-                html_content += f"""
-                <div class="chart-container">
-                    <img src="data:image/png;base64,{buy_chart_b64}" alt="Buy Signals Chart" />
-                </div>"""
-            
-            html_content += """
+                </table>
             </div>"""
 
         # Sell Signals Section
-        if not sell_signals.empty:
+        if not top_sell_signals.empty:
             html_content += """
             <div class="signals-section sell-signals">
                 <div class="section-header">
-                    <h2>🔴 Top Sell Signals (Overbought Conditions)</h2>
+                    <h2>🔴 Top Combined Sell Signals</h2>
                 </div>
                 <table class="signal-table">
                     <thead>
                         <tr>
                             <th>Symbol</th>
                             <th>Price</th>
-                            <th>Signal Strength</th>
+                            <th>Sell Signal</th>
+                            <th>Strategy Type</th>
+                            <th>Confidence</th>
                             <th>RSI</th>
-                            <th>5-Day Change</th>
                         </tr>
                     </thead>
                     <tbody>"""
             
-            for _, row in sell_signals.head(5).iterrows():
-                change_class = "change-positive" if row['Price_Change_5d'] > 0 else "change-negative"
+            for _, row in top_sell_signals.head(8).iterrows():
+                # Determine strategy type color
+                strategy_color = {
+                    'CONSENSUS': '#6f42c1',
+                    'MOMENTUM': '#fd7e14', 
+                    'MEAN_REVERSION': '#20c997',
+                    'CONTRARIAN': '#ffc107',
+                    'WEAK': '#6c757d'
+                }.get(row['Strategy_Type'], '#6c757d')
+                
                 html_content += f"""
                         <tr class="sell-row">
                             <td class="symbol">{row['Symbol']}</td>
                             <td class="price">${row['Current_Price']:.2f}</td>
-                            <td class="signal-strength">{row['Sell_Signal_Strength']:.2f}</td>
+                            <td class="signal-strength">{row['Combined_Sell_Signal']:.3f}</td>
+                            <td style="color: {strategy_color}; font-weight: 600;">{row['Strategy_Type']}</td>
+                            <td class="signal-strength">{row['Confidence_Score']:.2f}</td>
                             <td class="rsi">{row['RSI']:.1f}</td>
-                            <td class="{change_class}">{row['Price_Change_5d']:+.1f}%</td>
                         </tr>"""
             
             html_content += """
                     </tbody>
-                </table>"""
-            
-            # Sell Signals Chart
-            if sell_chart_b64:
-                html_content += f"""
-                <div class="chart-container">
-                    <img src="data:image/png;base64,{sell_chart_b64}" alt="Sell Signals Chart" />
-                </div>"""
-            
-            html_content += """
+                </table>
             </div>"""
 
         # Tips and Footer
         html_content += """
             <div class="tips">
-                <h3>💡 Trading Tips & Risk Management</h3>
+                <h3>💡 Combined Strategy Trading Tips</h3>
                 <ul>
-                    <li><strong>Buy Signals:</strong> Look for RSI &lt; 30, negative Z-scores, recent declines</li>
-                    <li><strong>Sell Signals:</strong> Look for RSI &gt; 70, positive Z-scores, recent gains</li>
+                    <li><strong>Consensus Signals:</strong> Both mean reversion and momentum agree - highest confidence</li>
+                    <li><strong>Momentum Signals:</strong> Trend-following opportunities with strong directional bias</li>
+                    <li><strong>Mean Reversion:</strong> Contrarian plays expecting price normalization</li>
+                    <li><strong>Contrarian Signals:</strong> Strategies disagree - high risk but potential high reward</li>
                     <li><strong>Risk Management:</strong> Always use stop-losses and proper position sizing</li>
-                    <li><strong>Confirmation:</strong> Consider volume patterns, market conditions, and fundamentals</li>
-                    <li><strong>Timing:</strong> Mean reversion works best in ranging markets</li>
+                    <li><strong>Confidence Scores:</strong> Higher scores indicate stronger signal validation</li>
                 </ul>
             </div>
             
             <div class="embedded-note">
-                <h4>📊 Embedded Visualizations</h4>
-                <p>This email contains embedded PNG charts for better compatibility:</p>
+                <h4>📊 Combined Strategy Dashboard</h4>
+                <p>This email contains the comprehensive combined strategy analysis dashboard:</p>
                 <ul>
-                    <li><strong>Market Overview:</strong> Complete analysis of all signals</li>
-                    <li><strong>Buy Signals Chart:</strong> Detailed buy opportunities visualization</li>
-                    <li><strong>Sell Signals Chart:</strong> Detailed sell opportunities visualization</li>
+                    <li><strong>Buy/Sell Signal Charts:</strong> Top opportunities from both strategies</li>
+                    <li><strong>Strategy Distribution:</strong> Breakdown of signal types</li>
+                    <li><strong>Signal Strength Analysis:</strong> Confidence-weighted recommendations</li>
+                    <li><strong>Multi-Strategy Validation:</strong> Enhanced accuracy through strategy combination</li>
                 </ul>
-                <p><em>Charts are embedded as base64 images - no external files needed!</em></p>
+                <p><em>All charts embedded as base64 images - no external files needed!</em></p>
             </div>
         </div>
         
@@ -372,16 +432,16 @@ class GmailEmailSender:
         
         try:
             # Load analysis data
-            print("📊 Loading analysis data...")
-            buy_signals, sell_signals, stock_metadata = self.load_analysis_data()
+            print("📊 Loading combined strategy analysis data...")
+            analysis_data = self.load_analysis_data()
             
-            if buy_signals.empty and sell_signals.empty:
-                print("❌ No analysis data found")
+            if analysis_data['combined'].empty:
+                print("❌ No combined analysis data found")
                 return False
             
             # Generate HTML content with embedded charts
             print("📝 Generating HTML email with embedded charts...")
-            html_content = self.generate_html_email(buy_signals, sell_signals, stock_metadata)
+            html_content = self.generate_html_email(analysis_data)
             
             # Save HTML content
             html_file = os.path.join(self.output_dir, 'gmail_embedded_email.html')
@@ -389,49 +449,69 @@ class GmailEmailSender:
                 f.write(html_content)
             print(f"✅ HTML email with embedded charts saved to {html_file}")
             
+            # Extract data for text summary
+            combined_data = analysis_data['combined']
+            top_buy_signals = combined_data.nlargest(5, 'Combined_Buy_Signal')
+            top_sell_signals = combined_data.nlargest(5, 'Combined_Sell_Signal')
+            strategy_counts = combined_data['Strategy_Type'].value_counts()
+            
             # Generate plain text summary
             current_date = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
-            text_content = f"""📈 DAILY TRADING ANALYSIS REPORT - {current_date}
+            text_content = f"""📈 COMBINED STRATEGY ANALYSIS REPORT - {current_date}
 {'='*60}
 
-📊 MARKET ANALYSIS SUMMARY:
-• Total Stocks Analyzed: {len(stock_metadata)}
-• Buy Signals Found: {len(buy_signals)}
-• Sell Signals Found: {len(sell_signals)}
+📊 COMBINED STRATEGY SUMMARY:
+• Total Stocks Analyzed: {len(combined_data)}
+• Strong Buy Signals: {len(top_buy_signals)}
+• Strong Sell Signals: {len(top_sell_signals)}
+• Consensus Signals: {len(analysis_data['consensus'])}
+• Momentum Signals: {len(analysis_data['momentum'])}
+• Mean Reversion Signals: {len(analysis_data['mean_reversion'])}
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
-• Strategy: Mean Reversion (Bollinger Bands, RSI, Z-Score)
+• Strategies: Mean Reversion + Momentum Analysis
 
-🟢 TOP 5 BUY SIGNALS (Oversold Opportunities):
+🎯 STRATEGY BREAKDOWN:
 {'-'*50}
 """
             
-            if not buy_signals.empty:
-                for i, (_, row) in enumerate(buy_signals.head(5).iterrows(), 1):
-                    text_content += f"{i}. {row['Symbol']} - ${row['Current_Price']:.2f} | Signal: {row['Buy_Signal_Strength']:.2f} | RSI: {row['RSI']:.1f} | Change: {row['Price_Change_5d']:+.1f}%\n"
+            for strategy, count in strategy_counts.items():
+                percentage = (count / len(combined_data)) * 100
+                text_content += f"• {strategy.replace('_', ' ')}: {count} stocks ({percentage:.1f}%)\n"
             
             text_content += f"""
-🔴 TOP 5 SELL SIGNALS (Overbought Conditions):
+🟢 TOP 5 COMBINED BUY SIGNALS:
 {'-'*50}
 """
             
-            if not sell_signals.empty:
-                for i, (_, row) in enumerate(sell_signals.head(5).iterrows(), 1):
-                    text_content += f"{i}. {row['Symbol']} - ${row['Current_Price']:.2f} | Signal: {row['Sell_Signal_Strength']:.2f} | RSI: {row['RSI']:.1f} | Change: {row['Price_Change_5d']:+.1f}%\n"
+            if not top_buy_signals.empty:
+                for i, (_, row) in enumerate(top_buy_signals.iterrows(), 1):
+                    text_content += f"{i}. {row['Symbol']} - ${row['Current_Price']:.2f} | Signal: {row['Combined_Buy_Signal']:.3f} | Strategy: {row['Strategy_Type']} | Confidence: {row['Confidence_Score']:.2f} | RSI: {row['RSI']:.1f}\n"
             
             text_content += f"""
-💡 TRADING TIPS:
-• Buy Signals: Look for RSI < 30, negative Z-scores, recent declines
-• Sell Signals: Look for RSI > 70, positive Z-scores, recent gains  
+🔴 TOP 5 COMBINED SELL SIGNALS:
+{'-'*50}
+"""
+            
+            if not top_sell_signals.empty:
+                for i, (_, row) in enumerate(top_sell_signals.iterrows(), 1):
+                    text_content += f"{i}. {row['Symbol']} - ${row['Current_Price']:.2f} | Signal: {row['Combined_Sell_Signal']:.3f} | Strategy: {row['Strategy_Type']} | Confidence: {row['Confidence_Score']:.2f} | RSI: {row['RSI']:.1f}\n"
+            
+            text_content += f"""
+💡 COMBINED STRATEGY TIPS:
+• Consensus Signals: Both strategies agree - highest confidence
+• Momentum Signals: Trend-following opportunities with directional bias
+• Mean Reversion: Contrarian plays expecting price normalization
+• Contrarian Signals: Strategies disagree - high risk/reward potential
 • Risk Management: Always use stop-losses and position sizing
-• Confirmation: Consider volume, market conditions, fundamentals
+• Confidence Scores: Higher scores indicate stronger signal validation
 
-🖼️ EMBEDDED VISUALIZATIONS:
-• Market overview chart showing all signals
-• Buy signals detailed chart  
-• Sell signals detailed chart
+🖼️ COMBINED STRATEGY DASHBOARD:
+• Buy/Sell signal charts with strategy breakdown
+• Strategy distribution and signal strength analysis
+• Multi-strategy validation for enhanced accuracy
 • All charts embedded in HTML - no separate files needed!
 
-📧 Automated Trading Analysis | Embedded Charts Version
+📧 Combined Strategy Analysis | Embedded Charts Version
 ⚠️  This is for educational purposes only. Not financial advice.
 📊 Data sources: Yahoo Finance via yfinance library
 """
@@ -443,7 +523,7 @@ class GmailEmailSender:
             print(f"✅ Text email content saved to {text_file}")
             
             # Create email subject
-            subject = f"📈 Daily Trading Analysis - {datetime.now().strftime('%Y-%m-%d')} (Embedded Charts)"
+            subject = f"📈 Combined Strategy Analysis - {datetime.now().strftime('%Y-%m-%d')} (Multi-Strategy Dashboard)"
             subject_file = os.path.join(self.output_dir, 'gmail_embedded_subject.txt')
             with open(subject_file, 'w', encoding='utf-8') as f:
                 f.write(subject)
@@ -453,8 +533,9 @@ class GmailEmailSender:
             print(f"\n📋 Email Content Summary:")
             print(f"   📧 Subject: {subject}")
             print(f"   📄 Recipients: {self.to_email}")
-            print(f"   📊 Buy signals: {len(buy_signals)}, Sell signals: {len(sell_signals)}")
-            print(f"   🖼️ Embedded charts: Market overview, buy signals, sell signals")
+            print(f"   📊 Combined signals: {len(combined_data)} stocks analyzed")
+            print(f"   🎯 Strategy breakdown: {len(analysis_data['consensus'])} consensus, {len(analysis_data['momentum'])} momentum, {len(analysis_data['mean_reversion'])} mean reversion")
+            print(f"   🖼️ Embedded charts: Combined strategy dashboard with buy/sell signals")
             
             # Show file sizes
             if os.path.exists(html_file):
@@ -488,8 +569,8 @@ def main():
             print(f"   {i}. {issue}")
         
         print("\n🔧 Setup Instructions:")
-        print("   📊 Generate analysis data first:")
-        print("      python src/multi_stock_mean_reversion_dynamic.py")
+        print("   📊 Generate combined strategy analysis first:")
+        print("      python src/combined_strategy_analysis.py")
         
         return
     

@@ -213,14 +213,13 @@ class MomentumAlgorithms:
         if not self.popular_stocks:
             self.fetch_dynamic_stock_list()
         
-        print(f"\nAnalyzing {len(self.popular_stocks)} stocks for momentum signals...")
-        print("=" * 80)
+        # Suppress intermediate output - will be shown in combined analysis only
         
         results = []
         processed = 0
         
         for symbol in self.popular_stocks:
-            print(f"Processing {symbol}... ({processed + 1}/{len(self.popular_stocks)})", end='\r')
+            # Silent processing for cleaner output
             
             data = self.fetch_stock_data(symbol)
             if data is None:
@@ -257,7 +256,7 @@ class MomentumAlgorithms:
             processed += 1
             time.sleep(0.02)
         
-        print(f"\nCompleted momentum analysis of {processed} stocks")
+        # Momentum analysis complete - results ready for processing
         
         self.signals_df = pd.DataFrame(results)
         return self.signals_df
@@ -272,40 +271,43 @@ class MomentumAlgorithms:
         
         return top_momentum_buys, top_momentum_sells
     
-    def run_momentum_analysis(self, force_refresh_stocks=False):
+    def run_momentum_analysis(self, force_refresh_stocks=False, silent=False):
         """Run the complete momentum analysis"""
-        print("Momentum-Based Stock Analysis")
-        print("=" * 60)
+        if not silent:
+            print("Momentum-Based Stock Analysis")
+            print("=" * 60)
         
         self.fetch_dynamic_stock_list(force_refresh=force_refresh_stocks)
         signals_df = self.analyze_all_stocks()
         
         if signals_df is None or len(signals_df) == 0:
-            print("No valid momentum signals found!")
+            if not silent:
+                print("No valid momentum signals found!")
             return
         
         top_momentum_buys, top_momentum_sells = self.get_top_momentum_signals(15)
         
-        print("\nTOP 15 MOMENTUM BUY SIGNALS (Strong Upward Momentum)")
-        print("=" * 90)
-        print(top_momentum_buys[['Symbol', 'Current_Price', 'Momentum_Buy_Signal', 'RSI', 
-                                'MACD', 'ROC_5', 'ROC_20', 'Price_vs_SMA20']].round(2).to_string(index=False))
-        
-        print("\nTOP 15 MOMENTUM SELL SIGNALS (Strong Downward Momentum)")
-        print("=" * 90)
-        print(top_momentum_sells[['Symbol', 'Current_Price', 'Momentum_Sell_Signal', 'RSI', 
-                                 'MACD', 'ROC_5', 'ROC_20', 'Price_vs_SMA20']].round(2).to_string(index=False))
-        
-        # Save results
-        momentum_buy_signals_path = os.path.join(self.output_dir, 'top_momentum_buy_signals.csv')
-        momentum_sell_signals_path = os.path.join(self.output_dir, 'top_momentum_sell_signals.csv')
-        
-        top_momentum_buys.to_csv(momentum_buy_signals_path, index=False)
-        top_momentum_sells.to_csv(momentum_sell_signals_path, index=False)
-        
-        print("\nMomentum analysis results saved to:")
-        print(f"- {momentum_buy_signals_path}")
-        print(f"- {momentum_sell_signals_path}")
+        if not silent:
+            print("\nTOP 15 MOMENTUM BUY SIGNALS (Strong Upward Momentum)")
+            print("=" * 90)
+            print(top_momentum_buys[['Symbol', 'Current_Price', 'Momentum_Buy_Signal', 'RSI', 
+                                    'MACD', 'ROC_5', 'ROC_20', 'Price_vs_SMA20']].round(2).to_string(index=False))
+            
+            print("\nTOP 15 MOMENTUM SELL SIGNALS (Strong Downward Momentum)")
+            print("=" * 90)
+            print(top_momentum_sells[['Symbol', 'Current_Price', 'Momentum_Sell_Signal', 'RSI', 
+                                     'MACD', 'ROC_5', 'ROC_20', 'Price_vs_SMA20']].round(2).to_string(index=False))
+            
+            # Save results
+            momentum_buy_signals_path = os.path.join(self.output_dir, 'top_momentum_buy_signals.csv')
+            momentum_sell_signals_path = os.path.join(self.output_dir, 'top_momentum_sell_signals.csv')
+            
+            top_momentum_buys.to_csv(momentum_buy_signals_path, index=False)
+            top_momentum_sells.to_csv(momentum_sell_signals_path, index=False)
+            
+            print("\nMomentum analysis results saved to:")
+            print(f"- {momentum_buy_signals_path}")
+            print(f"- {momentum_sell_signals_path}")
         
         return top_momentum_buys, top_momentum_sells
 

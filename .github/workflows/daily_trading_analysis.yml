@@ -1,19 +1,14 @@
-name: Daily Trading Analysis
+name: Automated Trading Analysis
 
 on:
   schedule:
     # Stock fetcher: Twice a week (Monday and Thursday) at 4:30 AM ET (9:30 AM UTC)
     - cron: '30 9 * * 1,4'
-    # Daily analysis: Every weekday at 5:00 AM ET (10:00 AM UTC) 
+    # Combined analysis: Every weekday at 5:00 AM ET (10:00 AM UTC) 
     - cron: '0 10 * * 1-5'
     # Email sender: Every weekday at 5:30 AM ET (10:30 AM UTC)
     - cron: '30 10 * * 1-5'
   workflow_dispatch:  # Allow manual trigger
-  push:
-    branches: [ main ]
-    paths: 
-      - '**.py'
-      - '.github/workflows/daily_trading_analysis.yml'
 
 # Grant necessary permissions for the workflow
 permissions:
@@ -24,7 +19,7 @@ jobs:
   # Job 1: Stock Data Refresh (Twice weekly)
   stock-refresh:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '30 9 * * 1,4' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    if: github.event.schedule == '30 9 * * 1,4' || github.event_name == 'workflow_dispatch'
     
     steps:
     - name: Checkout repository
@@ -53,7 +48,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         
-        # Add generated files first
+        # Add generated files
         git add -A
         
         # Pull latest changes and handle conflicts
@@ -69,10 +64,10 @@ jobs:
           echo "Pushed updated stock data"
         fi
 
-  # Job 2: Daily Trading Analysis
-  trading-analysis:
+  # Job 2: Combined Strategy Analysis (Daily)
+  combined-analysis:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    if: github.event.schedule == '0 10 * * 1-5' || github.event_name == 'workflow_dispatch'
     
     steps:
     - name: Checkout repository
@@ -91,90 +86,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run Daily Trading Analysis
+    - name: Run Combined Strategy Analysis
       run: |
-        echo "📊 Running daily mean reversion analysis at 5:00 AM ET..."
-        python src/multi_stock_mean_reversion_dynamic.py
-    
-    - name: Generate Analysis Report
-      run: |
-        echo "# Daily Trading Analysis Report - $(date '+%Y-%m-%d')" > output/daily_report.md
-        echo "" >> output/daily_report.md
-        echo "## Market Analysis Summary" >> output/daily_report.md
-        echo "" >> output/daily_report.md
-        echo "Analysis completed at: $(date)" >> output/daily_report.md
-        echo "Scheduled time: 5:00 AM ET (10:00 AM UTC)" >> output/daily_report.md
-        echo "" >> output/daily_report.md
-        echo "### Top Buy Signals" >> output/daily_report.md
-        echo "" >> output/daily_report.md
-        if [ -f "output/top_buy_signals.csv" ]; then
-          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> output/daily_report.md
-          echo "|--------|-------|----------------|-----|---------|-----------|" >> output/daily_report.md
-          head -6 output/top_buy_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> output/daily_report.md
-        fi
-        echo "" >> output/daily_report.md
-        echo "### Top Sell Signals" >> output/daily_report.md
-        echo "" >> output/daily_report.md
-        if [ -f "output/top_sell_signals.csv" ]; then
-          echo "| Symbol | Price | Signal Strength | RSI | Z-Score | 5d Change |" >> output/daily_report.md
-          echo "|--------|-------|----------------|-----|---------|-----------|" >> output/daily_report.md
-          head -6 output/top_sell_signals.csv | tail -5 | awk -F',' '{printf "| %s | $%.2f | %.2f | %.1f | %.2f | %.1f%% |\n", $1, $2, $3, $4, $5, $6}' >> output/daily_report.md
-        fi
-        echo "" >> output/daily_report.md
-        echo "---" >> output/daily_report.md
-        echo "*Generated automatically by GitHub Actions at 5:00 AM ET*" >> output/daily_report.md
-    
-    - name: Archive Analysis Results
-      run: |
-        # Create timestamped directory for historical data
-        timestamp=$(date '+%Y%m%d_%H%M%S')
-        mkdir -p "historical_analysis/$timestamp"
-        
-        # Copy current analysis to historical archive
-        cp output/top_buy_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp output/top_sell_signals.csv "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp output/dynamic_multi_stock_signals.png "historical_analysis/$timestamp/" 2>/dev/null || true
-        cp output/daily_report.md "historical_analysis/$timestamp/" 2>/dev/null || true
-        
-        echo "Archived analysis to historical_analysis/$timestamp/"
-    
-    - name: Commit and Push Results
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        
-        # Add generated files first
-        git add -A
-        
-        # Pull latest changes and handle conflicts
-        git fetch origin main
-        git merge origin/main --no-edit || echo "Merge conflicts handled"
-        
-        # Check if there are changes to commit
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "Daily trading analysis - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push origin main
-          echo "Pushed daily analysis results"
-        fi
+        echo "📊 Running combined strategy analysis at 5:00 AM ET..."
+        python src/combined_strategy_analysis.py
     
     - name: Upload Analysis Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: daily-trading-analysis-${{ github.run_number }}
+        name: combined-analysis-${{ github.run_number }}
         path: |
-          output/top_buy_signals.csv
-          output/top_sell_signals.csv
-          output/dynamic_multi_stock_signals.png
-          output/daily_report.md
-          output/gmail_embedded_email.html
+          output/combined_strategy_analysis.csv
+          output/combined_strategy_analysis.png
+          output/consensus_signals.csv
+          output/momentum_dominant_signals.csv
+          output/mean_reversion_dominant_signals.csv
+          output/contrarian_signals.csv
         retention-days: 30
 
-  # Job 3: Email Notification
-  email-notification:
+  # Job 3: Email Content Generation (Daily)
+  email-generation:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '30 10 * * 1-5' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+    if: github.event.schedule == '30 10 * * 1-5' || github.event_name == 'workflow_dispatch'
+    needs: combined-analysis  # Wait for analysis to complete
     
     steps:
     - name: Checkout repository
@@ -193,31 +127,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Generate Embedded Email Content
-      run: |
-        echo "📧 Generating email with embedded charts at 5:30 AM ET..."
-        python src/email_sender_gmail_embedded.py
+    - name: Download Analysis Results
+      uses: actions/download-artifact@v4
+      with:
+        name: combined-analysis-${{ github.run_number }}
+        path: output/
     
-    - name: Commit and Push Email Content
+    - name: Generate Email Content
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        
-        # Add generated email files first
-        git add output/gmail_embedded_email.html output/gmail_embedded_email.txt output/gmail_embedded_subject.txt
-        
-        # Pull latest changes and handle conflicts
-        git fetch origin main
-        git merge origin/main --no-edit || echo "Merge conflicts handled"
-        
-        # Check if there are changes to commit
-        if git diff --staged --quiet; then
-          echo "No new email content to commit"
-        else
-          git commit -m "Generated email content - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push origin main
-          echo "Pushed email content"
-        fi
+        echo "📧 Generating email with combined strategy dashboard at 5:30 AM ET..."
+        python src/email_sender_gmail_embedded.py
     
     - name: Upload Email Artifacts
       uses: actions/upload-artifact@v4
@@ -231,14 +150,19 @@ jobs:
     
     - name: Email Content Summary
       run: |
-        echo "📧 Email content generated successfully!"
+        echo "📧 Combined Strategy Email Content Generated Successfully!"
         echo "🕐 Scheduled time: 5:30 AM ET (10:30 AM UTC)"
+        echo "📊 Analysis type: Combined Strategy (Mean Reversion + Momentum)"
         echo "📁 Files available as artifacts:"
-        echo "   - gmail_embedded_email.html (with embedded charts)"
-        echo "   - gmail_embedded_email.txt (plain text version)"
+        echo "   - gmail_embedded_email.html (1MB+ with embedded dashboard)"
+        echo "   - gmail_embedded_email.txt (plain text summary)"
         echo "   - gmail_embedded_subject.txt (email subject)"
         echo ""
-        echo "💡 To send emails automatically, configure:"
-        echo "   - Gmail SMTP credentials"
-        echo "   - SendGrid API key"
-        echo "   - Or use these files with any email service" 
+        echo "🎯 Strategy breakdown included in email:"
+        echo "   - Consensus signals (both strategies agree)"
+        echo "   - Momentum-driven signals"
+        echo "   - Mean reversion signals"
+        echo "   - Contrarian signals"
+        echo "   - Confidence scoring and strategy validation"
+        echo ""
+        echo "💡 To send emails automatically, configure email service credentials" 
