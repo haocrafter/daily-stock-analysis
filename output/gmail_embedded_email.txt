@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-18 02:05 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-18 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -19,17 +19,17 @@
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
 1. PANW - $202.05 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.0
-2. XOM - $114.00 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 85.8
-3. WBD - $10.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.5
-4. MU - $120.34 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 90.3
-5. CRWD - $492.03 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
+2. MU - $120.34 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 90.3
+3. XOM - $114.00 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 85.8
+4. CRWD - $492.03 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
+5. WBD - $10.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.5
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
 1. ADBE - $382.68 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.4
-2. MDLZ - $66.35 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.1
+2. PYPL - $70.67 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.2
 3. BIIB - $126.56 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.2
-4. PYPL - $70.67 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.2
+4. MDLZ - $66.35 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.1
 5. TMUS - $221.43 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.1
 
 💡 COMBINED STRATEGY TIPS:
