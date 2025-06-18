@@ -15,7 +15,7 @@ class DynamicMultiStockMeanReversion:
         self.lookback_days = lookback_days
         self.num_stocks = num_stocks
         self.end_date = datetime.now()
-        self.start_date = self.end_date - timedelta(days=lookback_days + 100)  # Extra days for indicators
+        self.start_date = self.end_date - timedelta(days=lookback_days + 50)  # Extra days for indicators
         self.stock_data = {}
         self.signals_df = None
         self.stock_fetcher = DynamicStockFetcher()
@@ -86,16 +86,16 @@ class DynamicMultiStockMeanReversion:
             return None
     
     def calculate_indicators(self, data):
-        """Calculate technical indicators for mean reversion analysis"""
+        """Calculate technical indicators for a stock"""
         if data is None or len(data) < 50:
             return None
         
         # Bollinger Bands
         data['SMA_20'] = data['Close'].rolling(window=20).mean()
-        data['BB_std'] = data['Close'].rolling(window=20).std()
-        data['BB_upper'] = data['SMA_20'] + (data['BB_std'] * 2)
-        data['BB_lower'] = data['SMA_20'] - (data['BB_std'] * 2)
-        data['BB_Position'] = (data['Close'] - data['BB_lower']) / (data['BB_upper'] - data['BB_lower'])
+        data['STD_20'] = data['Close'].rolling(window=20).std()
+        data['Upper_Band'] = data['SMA_20'] + (data['STD_20'] * 2)
+        data['Lower_Band'] = data['SMA_20'] - (data['STD_20'] * 2)
+        data['BB_Position'] = (data['Close'] - data['Lower_Band']) / (data['Upper_Band'] - data['Lower_Band'])
         
         # RSI
         delta = data['Close'].diff()
@@ -104,138 +104,164 @@ class DynamicMultiStockMeanReversion:
         rs = gain / loss
         data['RSI'] = 100 - (100 / (1 + rs))
         
-        # Z-Score (standardized price)
-        data['SMA_50'] = data['Close'].rolling(window=50).mean()
-        data['Price_std'] = data['Close'].rolling(window=50).std()
-        data['Z_Score'] = (data['Close'] - data['SMA_50']) / data['Price_std']
+        # Z-Score
+        data['Price_Mean'] = data['Close'].rolling(window=20).mean()
+        data['Price_Std'] = data['Close'].rolling(window=20).std()
+        data['Z_Score'] = (data['Close'] - data['Price_Mean']) / data['Price_Std']
         
         # Volume indicators
         data['Volume_SMA'] = data['Volume'].rolling(window=20).mean()
         data['Volume_Ratio'] = data['Volume'] / data['Volume_SMA']
         
-        # Price changes
+        # Price momentum
         data['Price_Change_5d'] = data['Close'].pct_change(5)
         data['Price_Change_20d'] = data['Close'].pct_change(20)
         
-        # Long-term moving averages
+        # Additional indicators for enhanced scoring
+        data['SMA_50'] = data['Close'].rolling(window=50).mean()
         data['SMA_200'] = data['Close'].rolling(window=200).mean()
-        data['Price_vs_SMA50'] = ((data['Close'] / data['SMA_50']) - 1) * 100
-        data['Price_vs_SMA200'] = ((data['Close'] / data['SMA_200']) - 1) * 100
-        
-        # === MOMENTUM INDICATORS INTEGRATION ===
-        # MACD for momentum context
-        exp1 = data['Close'].ewm(span=12).mean()
-        exp2 = data['Close'].ewm(span=26).mean()
-        data['MACD'] = exp1 - exp2
-        data['MACD_Signal'] = data['MACD'].ewm(span=9).mean()
-        data['MACD_Histogram'] = data['MACD'] - data['MACD_Signal']
-        
-        # Rate of Change for momentum
-        data['ROC_5'] = data['Close'].pct_change(5) * 100
-        data['ROC_10'] = data['Close'].pct_change(10) * 100
-        
-        # Moving average alignment for trend context
-        data['SMA_10'] = data['Close'].rolling(window=10).mean()
-        data['Price_vs_SMA10'] = ((data['Close'] / data['SMA_10']) - 1) * 100
-        data['Price_vs_SMA20'] = ((data['Close'] / data['SMA_20']) - 1) * 100
+        data['Price_vs_SMA50'] = (data['Close'] / data['SMA_50'] - 1) * 100
+        data['Price_vs_SMA200'] = (data['Close'] / data['SMA_200'] - 1) * 100
         
         return data
     
     def calculate_signal_strength(self, data):
-        """Calculate buy and sell signal strength for mean reversion"""
+        """Calculate signal strength for mean reversion with enhanced scoring"""
         if data is None or len(data) < 50:
-            return None, None, None
+            return None, None
         
         latest = data.iloc[-1]
         
-        # === PRIMARY MEAN REVERSION SIGNALS ===
-        buy_strength = 0.0
-        sell_strength = 0.0
+        # Buy signal components (oversold conditions)
+        buy_signals = []
         
-        # RSI oversold/overbought (primary indicator)
-        if latest['RSI'] < 30:
-            buy_strength += 0.35  # Strong oversold
-        elif latest['RSI'] < 40:
-            buy_strength += 0.2   # Moderate oversold
-        
-        if latest['RSI'] > 70:
-            sell_strength += 0.35  # Strong overbought
-        elif latest['RSI'] > 60:
-            sell_strength += 0.2   # Moderate overbought
-        
-        # Bollinger Bands position
-        if latest['BB_Position'] < 0.1:  # Near lower band
-            buy_strength += 0.25
+        # Bollinger Bands: Price below lower band
+        if latest['Close'] <= latest['Lower_Band']:
+            buy_signals.append(1.0)
         elif latest['BB_Position'] < 0.2:
-            buy_strength += 0.15
+            buy_signals.append(0.6)
+        elif latest['BB_Position'] < 0.3:
+            buy_signals.append(0.3)
+        else:
+            buy_signals.append(0.0)
         
-        if latest['BB_Position'] > 0.9:  # Near upper band
-            sell_strength += 0.25
-        elif latest['BB_Position'] > 0.8:
-            sell_strength += 0.15
+        # RSI: Oversold
+        if latest['RSI'] <= 20:
+            buy_signals.append(1.0)
+        elif latest['RSI'] <= 30:
+            buy_signals.append(0.8)
+        elif latest['RSI'] <= 40:
+            buy_signals.append(0.4)
+        else:
+            buy_signals.append(0.0)
         
-        # Z-Score (statistical deviation)
-        if latest['Z_Score'] < -2:
-            buy_strength += 0.25  # Significantly undervalued
-        elif latest['Z_Score'] < -1.5:
-            buy_strength += 0.15
-        
-        if latest['Z_Score'] > 2:
-            sell_strength += 0.25  # Significantly overvalued
-        elif latest['Z_Score'] > 1.5:
-            sell_strength += 0.15
+        # Z-Score: Significantly undervalued
+        if latest['Z_Score'] <= -2.5:
+            buy_signals.append(1.0)
+        elif latest['Z_Score'] <= -2.0:
+            buy_signals.append(0.8)
+        elif latest['Z_Score'] <= -1.5:
+            buy_signals.append(0.6)
+        elif latest['Z_Score'] <= -1.0:
+            buy_signals.append(0.3)
+        else:
+            buy_signals.append(0.0)
         
         # Volume confirmation
-        if latest['Volume_Ratio'] > 1.5:  # High volume
-            buy_strength += 0.1 if buy_strength > 0 else 0
-            sell_strength += 0.1 if sell_strength > 0 else 0
-        
-        # Price momentum (contrarian for mean reversion)
-        if latest['Price_Change_5d'] < -0.05:  # 5% decline
-            buy_strength += 0.05
-        elif latest['Price_Change_5d'] > 0.05:  # 5% gain
-            sell_strength += 0.05
-        
-        # === MOMENTUM CONTEXT (SECONDARY) ===
-        momentum_score = 0.0
-        
-        # MACD momentum context
-        if latest['MACD'] > latest['MACD_Signal']:
-            momentum_score += 0.3  # Bullish momentum
+        if latest['Volume_Ratio'] > 2.0:
+            buy_signals.append(0.6)
+        elif latest['Volume_Ratio'] > 1.5:
+            buy_signals.append(0.4)
+        elif latest['Volume_Ratio'] > 1.2:
+            buy_signals.append(0.2)
         else:
-            momentum_score -= 0.3  # Bearish momentum
+            buy_signals.append(0.0)
         
-        # ROC momentum context
-        if latest['ROC_5'] > 2:
-            momentum_score += 0.2  # Positive momentum
-        elif latest['ROC_5'] < -2:
-            momentum_score -= 0.2  # Negative momentum
+        # Recent decline (momentum)
+        if latest['Price_Change_5d'] < -0.10:  # 10% decline
+            buy_signals.append(0.8)
+        elif latest['Price_Change_5d'] < -0.05:  # 5% decline
+            buy_signals.append(0.5)
+        elif latest['Price_Change_5d'] < -0.02:
+            buy_signals.append(0.3)
+        else:
+            buy_signals.append(0.0)
         
-        # Moving average trend context
-        ma_signals = 0
-        if latest['Price_vs_SMA10'] > 0:
-            ma_signals += 1
-        if latest['Price_vs_SMA20'] > 0:
-            ma_signals += 1
-        if latest['Price_vs_SMA50'] > 0:
-            ma_signals += 1
+        # Long-term trend support
+        if latest['Price_vs_SMA200'] > -10 and latest['Price_vs_SMA50'] < -5:
+            buy_signals.append(0.3)  # Near long-term support but short-term oversold
+        else:
+            buy_signals.append(0.0)
         
-        if ma_signals >= 2:
-            momentum_score += 0.2  # Uptrend
-        elif ma_signals <= 1:
-            momentum_score -= 0.2  # Downtrend
+        # Sell signal components (overbought conditions)
+        sell_signals = []
         
-        # Normalize momentum score
-        momentum_score = max(-1.0, min(1.0, momentum_score))
+        # Bollinger Bands: Price above upper band
+        if latest['Close'] >= latest['Upper_Band']:
+            sell_signals.append(1.0)
+        elif latest['BB_Position'] > 0.8:
+            sell_signals.append(0.6)
+        elif latest['BB_Position'] > 0.7:
+            sell_signals.append(0.3)
+        else:
+            sell_signals.append(0.0)
         
-        # Ensure signals don't exceed 1.0
-        buy_strength = min(buy_strength, 1.0)
-        sell_strength = min(sell_strength, 1.0)
+        # RSI: Overbought
+        if latest['RSI'] >= 80:
+            sell_signals.append(1.0)
+        elif latest['RSI'] >= 70:
+            sell_signals.append(0.8)
+        elif latest['RSI'] >= 60:
+            sell_signals.append(0.4)
+        else:
+            sell_signals.append(0.0)
         
-        return buy_strength, sell_strength, momentum_score
+        # Z-Score: Significantly overvalued
+        if latest['Z_Score'] >= 2.5:
+            sell_signals.append(1.0)
+        elif latest['Z_Score'] >= 2.0:
+            sell_signals.append(0.8)
+        elif latest['Z_Score'] >= 1.5:
+            sell_signals.append(0.6)
+        elif latest['Z_Score'] >= 1.0:
+            sell_signals.append(0.3)
+        else:
+            sell_signals.append(0.0)
+        
+        # Volume confirmation
+        if latest['Volume_Ratio'] > 2.0:
+            sell_signals.append(0.6)
+        elif latest['Volume_Ratio'] > 1.5:
+            sell_signals.append(0.4)
+        elif latest['Volume_Ratio'] > 1.2:
+            sell_signals.append(0.2)
+        else:
+            sell_signals.append(0.0)
+        
+        # Recent gain (momentum)
+        if latest['Price_Change_5d'] > 0.10:  # 10% gain
+            sell_signals.append(0.8)
+        elif latest['Price_Change_5d'] > 0.05:  # 5% gain
+            sell_signals.append(0.5)
+        elif latest['Price_Change_5d'] > 0.02:
+            sell_signals.append(0.3)
+        else:
+            sell_signals.append(0.0)
+        
+        # Long-term trend resistance
+        if latest['Price_vs_SMA200'] < 10 and latest['Price_vs_SMA50'] > 5:
+            sell_signals.append(0.3)  # Near long-term resistance but short-term overbought
+        else:
+            sell_signals.append(0.0)
+        
+        # Calculate weighted signal strength
+        buy_strength = np.mean(buy_signals)
+        sell_strength = np.mean(sell_signals)
+        
+        return buy_strength, sell_strength
     
     def analyze_all_stocks(self):
-        """Analyze all stocks and generate mean reversion signals with momentum context"""
+        """Analyze all stocks and generate signals"""
         if not self.popular_stocks:
             self.fetch_dynamic_stock_list()
         
@@ -259,7 +285,7 @@ class DynamicMultiStockMeanReversion:
                 continue
             
             # Calculate signal strength
-            buy_strength, sell_strength, momentum_score = self.calculate_signal_strength(data)
+            buy_strength, sell_strength = self.calculate_signal_strength(data)
             if buy_strength is None:
                 continue
             
@@ -274,7 +300,6 @@ class DynamicMultiStockMeanReversion:
                 'Current_Price': latest['Close'],
                 'Buy_Signal_Strength': buy_strength,
                 'Sell_Signal_Strength': sell_strength,
-                'Momentum_Score': momentum_score,  # New: momentum context
                 'RSI': latest['RSI'],
                 'Z_Score': latest['Z_Score'],
                 'BB_Position': latest['BB_Position'],
@@ -282,14 +307,7 @@ class DynamicMultiStockMeanReversion:
                 'Price_Change_5d': latest['Price_Change_5d'] * 100,
                 'Price_Change_20d': latest['Price_Change_20d'] * 100,
                 'Price_vs_SMA50': latest['Price_vs_SMA50'],
-                'Price_vs_SMA200': latest['Price_vs_SMA200'],
-                # Momentum context fields
-                'MACD': latest['MACD'],
-                'MACD_Signal': latest['MACD_Signal'],
-                'ROC_5': latest['ROC_5'],
-                'ROC_10': latest['ROC_10'],
-                'Price_vs_SMA10': latest['Price_vs_SMA10'],
-                'Price_vs_SMA20': latest['Price_vs_SMA20']
+                'Price_vs_SMA200': latest['Price_vs_SMA200']
             })
             
             processed += 1
@@ -306,15 +324,15 @@ class DynamicMultiStockMeanReversion:
         if self.signals_df is None:
             return None, None
         
-        # Sort by signal strength (primary criteria)
+        # Sort by signal strength
         top_buys = self.signals_df.nlargest(top_n, 'Buy_Signal_Strength')
         top_sells = self.signals_df.nlargest(top_n, 'Sell_Signal_Strength')
         
         return top_buys, top_sells
     
     def plot_signals(self, top_buys, top_sells):
-        """Plot the top buy and sell signals with momentum context"""
-        fig, axes = plt.subplots(3, 3, figsize=(24, 20))  # Expanded to 3x3 for momentum context
+        """Plot the top buy and sell signals"""
+        fig, axes = plt.subplots(2, 3, figsize=(24, 16))
         
         # Plot 1: Top Buy Signals - Price Charts
         ax1 = axes[0, 0]
@@ -402,69 +420,13 @@ class DynamicMultiStockMeanReversion:
         ax6.grid(True, alpha=0.3)
         plt.colorbar(scatter, ax=ax6, label='Sell Signal Strength')
         
-        # === NEW MOMENTUM CONTEXT PLOTS ===
-        
-        # Plot 7: Mean Reversion vs Momentum Score for Buy Signals
-        ax7 = axes[2, 0]
-        scatter = ax7.scatter(top_buys['Buy_Signal_Strength'].head(15), top_buys['Momentum_Score'].head(15), 
-                             c=top_buys['RSI'].head(15), s=100, alpha=0.7, cmap='RdYlBu_r')
-        ax7.set_title('Buy Signals: Mean Reversion vs Momentum Context', fontsize=14)
-        ax7.set_xlabel('Mean Reversion Signal Strength')
-        ax7.set_ylabel('Momentum Score')
-        ax7.axhline(y=0, color='k', linestyle='--', alpha=0.5, label='Neutral Momentum')
-        ax7.legend()
-        ax7.grid(True, alpha=0.3)
-        plt.colorbar(scatter, ax=ax7, label='RSI')
-        
-        # Plot 8: MACD vs ROC for top signals
-        ax8 = axes[2, 1]
-        # Combine top buy and sell signals for momentum analysis
-        combined_signals = pd.concat([
-            top_buys[['Symbol', 'MACD', 'ROC_5', 'Buy_Signal_Strength', 'Sell_Signal_Strength']].head(8),
-            top_sells[['Symbol', 'MACD', 'ROC_5', 'Buy_Signal_Strength', 'Sell_Signal_Strength']].head(7)
-        ])
-        combined_signals['Signal_Type'] = ['Buy'] * 8 + ['Sell'] * 7
-        combined_signals['Max_Signal'] = combined_signals[['Buy_Signal_Strength', 'Sell_Signal_Strength']].max(axis=1)
-        
-        colors = ['green' if x == 'Buy' else 'red' for x in combined_signals['Signal_Type']]
-        scatter = ax8.scatter(combined_signals['MACD'], combined_signals['ROC_5'], 
-                             c=colors, s=combined_signals['Max_Signal']*200, alpha=0.6)
-        ax8.set_title('Top Signals: MACD vs Price Momentum (ROC)', fontsize=14)
-        ax8.set_xlabel('MACD')
-        ax8.set_ylabel('5-Day ROC (%)')
-        ax8.axhline(y=0, color='k', linestyle='--', alpha=0.5)
-        ax8.axvline(x=0, color='k', linestyle='--', alpha=0.5)
-        ax8.grid(True, alpha=0.3)
-        
-        # Add legend for signal types
-        from matplotlib.patches import Patch
-        legend_elements = [Patch(facecolor='green', alpha=0.6, label='Buy Signals'),
-                          Patch(facecolor='red', alpha=0.6, label='Sell Signals')]
-        ax8.legend(handles=legend_elements)
-        
-        # Plot 9: Signal Strength vs Momentum Score Distribution
-        ax9 = axes[2, 2]
-        all_signals = pd.concat([
-            top_buys[['Symbol', 'Buy_Signal_Strength', 'Momentum_Score']].head(10).rename(columns={'Buy_Signal_Strength': 'Signal_Strength'}),
-            top_sells[['Symbol', 'Sell_Signal_Strength', 'Momentum_Score']].head(10).rename(columns={'Sell_Signal_Strength': 'Signal_Strength'})
-        ])
-        
-        scatter = ax9.scatter(all_signals['Signal_Strength'], all_signals['Momentum_Score'], 
-                             c=range(len(all_signals)), s=100, alpha=0.7, cmap='viridis')
-        ax9.set_title('All Top Signals: Strength vs Momentum Context', fontsize=14)
-        ax9.set_xlabel('Signal Strength')
-        ax9.set_ylabel('Momentum Score')
-        ax9.axhline(y=0, color='k', linestyle='--', alpha=0.5, label='Neutral Momentum')
-        ax9.legend()
-        ax9.grid(True, alpha=0.3)
-        
         plt.tight_layout()
         output_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.show()
     
     def run_analysis(self, force_refresh_stocks=False):
-        """Run the complete dynamic multi-stock analysis with momentum context"""
+        """Run the complete dynamic multi-stock analysis"""
         print("Dynamic Multi-Stock Mean Reversion Analysis")
         print("=" * 60)
         
@@ -481,26 +443,21 @@ class DynamicMultiStockMeanReversion:
         # Get top signals
         top_buys, top_sells = self.get_top_signals(15)
         
-        # Display results with momentum context
+        # Display results
         print("\nTOP 15 BUY SIGNALS (Strong Mean Reversion - Oversold)")
-        print("=" * 110)
+        print("=" * 90)
         print(top_buys[['Symbol', 'Current_Price', 'Buy_Signal_Strength', 'RSI', 
-                       'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50', 'Momentum_Score']].round(2).to_string(index=False))
+                       'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
         
         print("\nTOP 15 SELL SIGNALS (Strong Mean Reversion - Overbought)")
-        print("=" * 110)
+        print("=" * 90)
         print(top_sells[['Symbol', 'Current_Price', 'Sell_Signal_Strength', 'RSI', 
-                        'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50', 'Momentum_Score']].round(2).to_string(index=False))
+                        'Z_Score', 'Price_Change_5d', 'Price_vs_SMA50']].round(2).to_string(index=False))
         
-        # Show momentum context summary
-        print(f"\n📊 MOMENTUM CONTEXT SUMMARY:")
-        print(f"Buy signals with positive momentum: {len(top_buys[top_buys['Momentum_Score'] > 0])}/15")
-        print(f"Sell signals with negative momentum: {len(top_sells[top_sells['Momentum_Score'] < 0])}/15")
-        
-        # Plot overview with momentum context
+        # Plot overview
         self.plot_signals(top_buys, top_sells)
         
-        # Save results to CSV with enhanced data
+        # Save results to CSV
         buy_signals_path = os.path.join(self.output_dir, 'top_buy_signals.csv')
         sell_signals_path = os.path.join(self.output_dir, 'top_sell_signals.csv')
         charts_path = os.path.join(self.output_dir, 'dynamic_multi_stock_signals.png')
@@ -516,7 +473,7 @@ class DynamicMultiStockMeanReversion:
         return top_buys, top_sells
 
 def main():
-    """Main function with enhanced momentum integration"""
+    """Main function"""
     import sys
     
     # Check command line argument for force refresh
@@ -530,12 +487,12 @@ def main():
     analyzer = DynamicMultiStockMeanReversion(lookback_days=252, num_stocks=100)
     top_buys, top_sells = analyzer.run_analysis(force_refresh_stocks=force_refresh)
     
-    print("\nEnhanced dynamic analysis complete!")
+    print("\nDynamic analysis complete!")
     if force_refresh:
         print("✅ Fetched fresh stock list from multiple sources")
     else:
         print("✅ Used cached/dynamic stock list efficiently")
-    print("✅ Analyzed mean reversion signals with momentum context")
+    print("✅ Analyzed mean reversion signals")
     print("✅ Generated comprehensive visualizations")
     print("✅ Saved results to files")
     
