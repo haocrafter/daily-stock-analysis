@@ -61,6 +61,11 @@ Thumbs.db
 output/
 !output/.gitkeep
 
+# But allow email files for review
+!output/gmail_embedded_email.html
+!output/gmail_embedded_email.txt
+!output/gmail_embedded_subject.txt
+
 # Historical Analysis Archives
 historical_analysis/
 
@@ -71,6 +76,11 @@ historical_analysis/
 *.eml
 *.json
 daily_report.md
+
+# But allow email files for review (specific exceptions)
+!gmail_embedded_email.html
+!gmail_embedded_email.txt
+!gmail_embedded_subject.txt
 
 # But keep essential config files
 !requirements.txt

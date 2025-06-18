@@ -124,6 +124,41 @@ python src/combined_strategy_analysis.py
 python src/email_sender_gmail_embedded.py
 ```
 
+## 🤖 Automated GitHub Actions Workflow
+
+The repository includes a fully automated GitHub Actions workflow that runs the analysis on a schedule:
+
+### **📅 Scheduling**
+- **Complete Analysis**: Every weekday at 5:00 AM ET (10:00 AM UTC)
+- **Stock Data Refresh**: Twice weekly (Monday/Thursday) at 4:30 AM ET (9:30 AM UTC)
+
+### **🔄 Workflow Jobs**
+
+1. **Stock Refresh**: Fetches latest stock data from multiple sources
+2. **Combined Analysis**: Runs complete strategy analysis with both mean reversion and momentum
+3. **Email Generation**: Creates HTML email with embedded dashboard and commits to repository
+
+### **📦 Artifact-Based Data Flow**
+
+The workflow uses GitHub artifacts for efficient data passing:
+- **Stock data** flows from Job 1 → Job 2 via artifacts
+- **Analysis results** flow from Job 2 → Job 3 via artifacts  
+- **Email content** is both uploaded as artifacts AND committed to Git for review
+
+### **🎯 Benefits**
+
+✅ **Fully Automated**: No manual intervention required  
+✅ **Clean Repository**: Analysis data stays in artifacts, only email files committed  
+✅ **Easy Review**: Generated email content available directly in GitHub  
+✅ **Reliable**: Each job verifies data integrity before proceeding  
+✅ **Scalable**: Easy to modify schedule or add new analysis steps  
+
+### **📁 Accessing Results**
+
+- **Email Content**: Check the `output/` directory for committed email files
+- **Analysis Data**: Download artifacts from the Actions tab for detailed CSV files and charts
+- **Manual Trigger**: Use "Run workflow" button in Actions tab for on-demand analysis
+
 ## 📈 Output Files
 
 The analysis generates comprehensive output files in the `output/` directory:
@@ -146,9 +181,11 @@ The analysis generates comprehensive output files in the `output/` directory:
 - `combined_strategy_analysis.png`: Comprehensive visualization dashboard
 
 ### **Email Integration**
-- `gmail_embedded_email.html`: HTML email with embedded combined strategy dashboard
-- `gmail_embedded_email.txt`: Plain text summary of combined analysis
-- `gmail_embedded_subject.txt`: Email subject line
+- `gmail_embedded_email.html`: HTML email with embedded combined strategy dashboard *(committed to Git for review)*
+- `gmail_embedded_email.txt`: Plain text summary of combined analysis *(committed to Git for review)*
+- `gmail_embedded_subject.txt`: Email subject line *(committed to Git for review)*
+
+**Note**: Most analysis files are generated as workflow artifacts and not committed to Git to keep the repository clean. Only email files are committed for easy review and manual sending.
 
 ## 🔧 Technical Architecture
 

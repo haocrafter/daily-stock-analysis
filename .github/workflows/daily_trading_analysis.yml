@@ -10,7 +10,7 @@ on:
 
 # Grant necessary permissions for the workflow
 permissions:
-  contents: read
+  contents: write  # Need write access to commit email files
   actions: read
 
 jobs:
@@ -243,6 +243,33 @@ jobs:
           output/gmail_embedded_email.txt
           output/gmail_embedded_subject.txt
         retention-days: 30
+    
+    - name: Commit Email Files for Review
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add only the email files for review
+        git add output/gmail_embedded_email.html output/gmail_embedded_email.txt output/gmail_embedded_subject.txt
+        
+        # Pull latest changes and handle conflicts
+        git fetch origin main
+        git merge origin/main --no-edit || echo "Merge conflicts handled"
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "📧 No new email content to commit"
+        else
+          git commit -m "📧 Generated email content - $(date '+%Y-%m-%d %H:%M UTC')"
+          git push origin main
+          echo "✅ Email content committed for review"
+          
+          # Show what was committed
+          echo "📁 Committed files:"
+          echo "   - gmail_embedded_email.html ($(du -h output/gmail_embedded_email.html | cut -f1))"
+          echo "   - gmail_embedded_email.txt"
+          echo "   - gmail_embedded_subject.txt"
+        fi
     
     - name: Workflow Summary
       run: |
