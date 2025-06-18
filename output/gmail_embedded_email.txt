@@ -1,0 +1,51 @@
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-17 18:10 UTC
+============================================================
+
+📊 COMBINED STRATEGY SUMMARY:
+• Total Stocks Analyzed: 37
+• Strong Buy Signals: 5
+• Strong Sell Signals: 5
+• Consensus Signals: 0
+• Momentum Signals: 10
+• Mean Reversion Signals: 0
+• Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
+• Strategies: Mean Reversion + Momentum Analysis
+
+🎯 STRATEGY BREAKDOWN:
+--------------------------------------------------
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 7 stocks (18.9%)
+
+🟢 TOP 5 COMBINED BUY SIGNALS:
+--------------------------------------------------
+1. AMD - $126.39 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.9
+2. FANG - $151.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.0
+3. ORCL - $211.10 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 88.7
+4. SOFI - $14.90 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.4
+5. HIMS - $59.78 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.5
+
+🔴 TOP 5 COMBINED SELL SIGNALS:
+--------------------------------------------------
+1. MRNA - $26.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 45.9
+2. MAR - $257.91 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.0
+3. COST - $984.36 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.0
+4. KO - $70.52 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 44.0
+5. LULU - $241.29 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 17.8
+
+💡 COMBINED STRATEGY TIPS:
+• Consensus Signals: Both strategies agree - highest confidence
+• Momentum Signals: Trend-following opportunities with directional bias
+• Mean Reversion: Contrarian plays expecting price normalization
+• Contrarian Signals: Strategies disagree - high risk/reward potential
+• Risk Management: Always use stop-losses and position sizing
+• Confidence Scores: Higher scores indicate stronger signal validation
+
+🖼️ COMBINED STRATEGY DASHBOARD:
+• Buy/Sell signal charts with strategy breakdown
+• Strategy distribution and signal strength analysis
+• Multi-strategy validation for enhanced accuracy
+• All charts embedded in HTML - no separate files needed!
+
+📧 Combined Strategy Analysis | Embedded Charts Version
+⚠️  This is for educational purposes only. Not financial advice.
+📊 Data sources: Yahoo Finance via yfinance library

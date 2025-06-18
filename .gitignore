@@ -58,18 +58,27 @@ Thumbs.db
 *.log
 
 # Output Directory - Generated Analysis Results
-output/
-!output/.gitkeep
+# Ignore most files in output/ but allow specific email files
+output/*.csv
+output/*.png
+output/*.json
+output/top_*.csv
+output/momentum_*.csv
+output/combined_*.csv
+output/consensus_*.csv
+output/contrarian_*.csv
+output/mean_reversion_*.csv
 
-# But allow email files for review
-!output/gmail_embedded_email.html
-!output/gmail_embedded_email.txt
-!output/gmail_embedded_subject.txt
+# Keep these files for review
+# output/gmail_embedded_email.html (allowed)
+# output/gmail_embedded_email.txt (allowed)  
+# output/gmail_embedded_subject.txt (allowed)
+# output/.gitkeep (allowed)
 
 # Historical Analysis Archives
 historical_analysis/
 
-# Generated Reports and Data Files (anywhere in repo)
+# Generated Reports and Data Files (anywhere in repo, except output/)
 *.csv
 *.png
 *.html
@@ -77,10 +86,10 @@ historical_analysis/
 *.json
 daily_report.md
 
-# But allow email files for review (specific exceptions)
-!gmail_embedded_email.html
-!gmail_embedded_email.txt
-!gmail_embedded_subject.txt
+# But allow specific email files in output/ directory
+!output/gmail_embedded_email.html
+!output/gmail_embedded_email.txt
+!output/gmail_embedded_subject.txt
 
 # But keep essential config files
 !requirements.txt
