@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-18 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-19 10:25 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 40
+• Total Stocks Analyzed: 39
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (75.0%)
-• WEAK: 10 stocks (25.0%)
+• MOMENTUM: 30 stocks (76.9%)
+• WEAK: 9 stocks (23.1%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. PANW - $202.05 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.0
-2. MU - $120.34 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 90.3
-3. XOM - $114.00 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 85.8
-4. CRWD - $492.03 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
-5. WBD - $10.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.5
+1. DDOG - $130.04 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.2
+2. COIN - $295.29 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
+3. MRVL - $74.95 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.9
+4. EA - $151.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.1
+5. ORCL - $210.87 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 86.2
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. ADBE - $382.68 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.4
-2. PYPL - $70.67 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.2
-3. BIIB - $126.56 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.2
-4. MDLZ - $66.35 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.1
-5. TMUS - $221.43 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.1
+1. EXC - $42.37 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.0
+2. BIIB - $126.54 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.5
+3. WDAY - $236.88 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.5
+4. PYPL - $68.57 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.3
+5. KO - $69.21 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.6
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
