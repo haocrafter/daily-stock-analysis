@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-19 10:25 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-20 10:27 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -7,19 +7,20 @@
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 1
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
 • MOMENTUM: 30 stocks (76.9%)
-• WEAK: 9 stocks (23.1%)
+• WEAK: 8 stocks (20.5%)
+• MEAN REVERSION: 1 stocks (2.6%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. DDOG - $130.04 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.2
-2. COIN - $295.29 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
+1. COIN - $295.29 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
+2. DDOG - $130.04 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.2
 3. MRVL - $74.95 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.9
 4. EA - $151.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.1
 5. ORCL - $210.87 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 86.2
