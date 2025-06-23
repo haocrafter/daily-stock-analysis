@@ -1,37 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-20 10:27 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-23 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 39
+• Total Stocks Analyzed: 40
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 1
+• Mean Reversion Signals: 2
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (76.9%)
-• WEAK: 8 stocks (20.5%)
-• MEAN REVERSION: 1 stocks (2.6%)
+• MOMENTUM: 30 stocks (75.0%)
+• WEAK: 8 stocks (20.0%)
+• MEAN REVERSION: 2 stocks (5.0%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. COIN - $295.29 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
-2. DDOG - $130.04 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.2
-3. MRVL - $74.95 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.9
-4. EA - $151.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.1
-5. ORCL - $210.87 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 86.2
+1. MDLZ - $68.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 55.0
+2. SMCI - $45.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 65.4
+3. AMD - $128.24 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.0
+4. MRVL - $73.51 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 75.6
+5. INTC - $21.08 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.9
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. EXC - $42.37 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.0
-2. BIIB - $126.54 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.5
-3. WDAY - $236.88 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.5
-4. PYPL - $68.57 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.3
-5. KO - $69.21 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.6
+1. CTSH - $75.47 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.0
+2. GOOGL - $166.64 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.9
+3. GOOG - $167.73 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.8
+4. JNJ - $149.79 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.0
+5. AMCR - $8.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
