@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-24 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-25 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -7,30 +7,31 @@
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 1
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
 • MOMENTUM: 30 stocks (78.9%)
-• WEAK: 8 stocks (21.1%)
+• WEAK: 7 stocks (18.4%)
+• MEAN REVERSION: 1 stocks (2.6%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. BAC - $46.30 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.1
-2. CSCO - $67.38 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
-3. DASH - $230.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.6
-4. COIN - $307.59 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.0
-5. F - $10.75 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.2
+1. UBER - $91.65 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.7
+2. HOOD - $82.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
+3. C - $81.14 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.4
+4. AMD - $138.43 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 75.3
+5. COIN - $344.82 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. AMGN - $272.44 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 31.5
-2. GOOGL - $165.19 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 44.5
-3. BIIB - $124.76 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.9
-4. GOOG - $166.01 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.8
-5. MSTR - $367.18 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.2
+1. FANG - $139.35 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.5
+2. AMGN - $277.49 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.2
+3. BKR - $37.97 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.7
+4. COIN - $344.82 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
+5. ROST - $128.33 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 11.2
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
