@@ -1,37 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-25 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-26 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 38
+• Total Stocks Analyzed: 46
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 1
+• Mean Reversion Signals: 3
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (78.9%)
-• WEAK: 7 stocks (18.4%)
-• MEAN REVERSION: 1 stocks (2.6%)
+• MOMENTUM: 30 stocks (65.2%)
+• WEAK: 13 stocks (28.3%)
+• MEAN REVERSION: 3 stocks (6.5%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. UBER - $91.65 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.7
-2. HOOD - $82.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
-3. C - $81.14 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.4
-4. AMD - $138.43 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 75.3
-5. COIN - $344.82 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
+1. CHTR - $398.85 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 55.6
+2. NVDA - $154.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.4
+3. CCL - $25.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.9
+4. SHOP - $113.89 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.6
+5. COIN - $355.37 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.0
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. FANG - $139.35 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.5
-2. AMGN - $277.49 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.2
-3. BKR - $37.97 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.7
-4. COIN - $344.82 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
-5. ROST - $128.33 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 11.2
+1. COIN - $355.37 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.0
+2. ABNB - $129.67 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 42.7
+3. BKR - $37.58 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 52.4
+4. CTSH - $76.98 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 39.3
+5. AMGN - $280.35 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 43.0
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
