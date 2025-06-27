@@ -1,37 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-26 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-06-27 10:29 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 46
+• Total Stocks Analyzed: 42
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 3
+• Mean Reversion Signals: 7
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (65.2%)
-• WEAK: 13 stocks (28.3%)
-• MEAN REVERSION: 3 stocks (6.5%)
+• MOMENTUM: 28 stocks (66.7%)
+• MEAN REVERSION: 7 stocks (16.7%)
+• WEAK: 7 stocks (16.7%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. CHTR - $398.85 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 55.6
-2. NVDA - $154.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.4
-3. CCL - $25.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.9
-4. SHOP - $113.89 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.6
-5. COIN - $355.37 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.0
+1. MRNA - $27.54 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.5
+2. MAR - $269.62 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.9
+3. GEHC - $74.86 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.3
+4. AVGO - $270.17 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.5
+5. NXPI - $218.30 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.1
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. COIN - $355.37 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.0
-2. ABNB - $129.67 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 42.7
-3. BKR - $37.58 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 52.4
-4. CTSH - $76.98 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 39.3
-5. AMGN - $280.35 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 43.0
+1. FANG - $140.87 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 54.2
+2. PEP - $128.22 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 45.5
+3. AMGN - $279.11 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 41.8
+4. COIN - $375.07 | Signal: 0.533 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 86.5
+5. C - $84.37 | Signal: 0.493 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.3
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
