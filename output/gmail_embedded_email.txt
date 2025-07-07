@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-04 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-07 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -19,9 +19,9 @@
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. CHTR - $416.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
+1. CRWD - $514.10 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.7
 2. CDNS - $326.81 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.3
-3. CRWD - $514.10 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.7
+3. CHTR - $416.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
 4. SBUX - $94.44 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 50.5
 5. DDOG - $155.15 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 84.4
 
