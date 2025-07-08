@@ -1,37 +1,36 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-07 10:28 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-08 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 44
+• Total Stocks Analyzed: 41
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 6
+• Mean Reversion Signals: 0
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 21 stocks (47.7%)
-• WEAK: 17 stocks (38.6%)
-• MEAN REVERSION: 6 stocks (13.6%)
+• WEAK: 22 stocks (53.7%)
+• MOMENTUM: 19 stocks (46.3%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. CRWD - $514.10 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.7
-2. CDNS - $326.81 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.3
-3. CHTR - $416.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.3
-4. SBUX - $94.44 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 50.5
-5. DDOG - $155.15 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 84.4
+1. ABNB - $137.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.0
+2. DDOG - $152.41 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.5
+3. PYPL - $76.18 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.4
+4. PFE - $25.24 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.8
+5. MDLZ - $68.82 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.8
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. CNC - $33.31 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 13.9
-2. RIVN - $13.07 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.8
-3. DDOG - $155.15 | Signal: 0.587 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 84.4
-4. MRVL - $75.18 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.8
-5. NKE - $76.39 | Signal: 0.493 | Strategy: MEAN_REVERSION | Confidence: 0.60 | RSI: 76.0
+1. TSLA - $293.94 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.3
+2. DDOG - $152.41 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.5
+3. ADBE - $376.93 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 39.8
+4. CTAS - $217.54 | Signal: 0.480 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 43.1
+5. AMD - $134.80 | Signal: 0.480 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 72.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
