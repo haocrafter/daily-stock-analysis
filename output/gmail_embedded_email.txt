@@ -1,36 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-08 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-09 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 41
+• Total Stocks Analyzed: 39
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 3
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• WEAK: 22 stocks (53.7%)
-• MOMENTUM: 19 stocks (46.3%)
+• MOMENTUM: 19 stocks (48.7%)
+• WEAK: 17 stocks (43.6%)
+• MEAN REVERSION: 3 stocks (7.7%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. ABNB - $137.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.0
-2. DDOG - $152.41 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.5
-3. PYPL - $76.18 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.4
-4. PFE - $25.24 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.8
-5. MDLZ - $68.82 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.8
+1. ON - $57.62 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.8
+2. XOM - $114.19 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.8
+3. AMGN - $297.00 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.1
+4. BIIB - $134.46 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 56.4
+5. FCX - $46.27 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.0
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. TSLA - $293.94 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.3
-2. DDOG - $152.41 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.5
-3. ADBE - $376.93 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 39.8
-4. CTAS - $217.54 | Signal: 0.480 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 43.1
-5. AMD - $134.80 | Signal: 0.480 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 72.1
+1. CTAS - $215.29 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.4
+2. TSLA - $297.81 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.3
+3. MNST - $61.59 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.3
+4. MRNA - $32.54 | Signal: 0.600 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 82.2
+5. ADBE - $382.24 | Signal: 0.480 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 35.5
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
