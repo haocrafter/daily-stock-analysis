@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-11 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-14 10:30 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 39
+• Total Stocks Analyzed: 37
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,25 +13,25 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 23 stocks (59.0%)
-• WEAK: 15 stocks (38.5%)
-• MEAN REVERSION: 1 stocks (2.6%)
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 6 stocks (16.2%)
+• MEAN REVERSION: 1 stocks (2.7%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. DAL - $56.78 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 80.1
-2. ANSS - $374.52 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 88.5
-3. NEE - $74.64 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.5
-4. SNPS - $566.19 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 87.2
-5. NCLH - $23.15 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.5
+1. GOOGL - $180.19 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.1
+2. CSX - $34.10 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.6
+3. MSTR - $434.58 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.5
+4. BKR - $40.70 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.1
+5. MRNA - $33.64 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.9
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. AXON - $732.99 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.6
-2. ADSK - $286.11 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.2
-3. WDAY - $229.30 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.6
-4. PANW - $192.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.0
-5. MNST - $59.17 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.9
+1. PANW - $187.39 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.7
+2. CRM - $258.07 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.4
+3. ISRG - $512.06 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.6
+4. PYPL - $71.36 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 54.5
+5. ADSK - $280.39 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.4
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
