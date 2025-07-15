@@ -1,37 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-14 10:30 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-15 10:27 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 37
+• Total Stocks Analyzed: 41
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 1
+• Mean Reversion Signals: 2
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (81.1%)
-• WEAK: 6 stocks (16.2%)
-• MEAN REVERSION: 1 stocks (2.7%)
+• MOMENTUM: 29 stocks (70.7%)
+• WEAK: 10 stocks (24.4%)
+• MEAN REVERSION: 2 stocks (4.9%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. GOOGL - $180.19 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.1
-2. CSX - $34.10 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.6
-3. MSTR - $434.58 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.5
-4. BKR - $40.70 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.1
-5. MRNA - $33.64 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 83.9
+1. AMD - $146.24 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.9
+2. CMCSA - $35.64 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.3
+3. PLTR - $149.15 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.2
+4. SMCI - $49.73 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.7
+5. ANSS - $385.85 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 92.6
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. PANW - $187.39 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.7
-2. CRM - $258.07 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.4
-3. ISRG - $512.06 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.6
-4. PYPL - $71.36 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 54.5
-5. ADSK - $280.39 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.4
+1. T - $27.16 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.2
+2. MNST - $59.67 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 31.7
+3. COST - $980.91 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.0
+4. WDAY - $224.76 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.6
+5. PANW - $190.72 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.8
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
