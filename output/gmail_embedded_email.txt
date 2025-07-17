@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-16 10:28 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-17 10:29 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 42
+• Total Stocks Analyzed: 43
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (71.4%)
-• WEAK: 12 stocks (28.6%)
+• MOMENTUM: 30 stocks (69.8%)
+• WEAK: 13 stocks (30.2%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. C - $90.72 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.9
-2. AMD - $155.61 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.3
-3. WBD - $12.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.5
-4. TTD - $80.40 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.5
-5. ANSS - $392.72 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 93.0
+1. SHOP - $120.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.9
+2. TSLA - $321.67 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.3
+3. WBD - $12.58 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.1
+4. NVDA - $171.37 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.1
+5. MSTR - $455.90 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.5
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. ADSK - $288.96 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.8
-2. KDP - $32.74 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.1
-3. CMCSA - $34.72 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.5
-4. ODFL - $161.35 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.2
-5. CRM - $257.58 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.7
+1. PANW - $192.59 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.1
+2. CNC - $30.41 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 13.0
+3. AXON - $742.77 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.7
+4. CTSH - $74.83 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.1
+5. WDAY - $226.73 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 40.3
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
