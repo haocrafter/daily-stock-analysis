@@ -1,36 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-17 10:29 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-18 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 43
+• Total Stocks Analyzed: 37
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 2
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (69.8%)
-• WEAK: 13 stocks (30.2%)
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 5 stocks (13.5%)
+• MEAN REVERSION: 2 stocks (5.4%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. SHOP - $120.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.9
-2. TSLA - $321.67 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.3
-3. WBD - $12.58 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.1
-4. NVDA - $171.37 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.1
-5. MSTR - $455.90 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.5
+1. LCID - $3.12 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.7
+2. MDLZ - $69.80 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.9
+3. SHOP - $126.75 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.5
+4. WBD - $12.84 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.0
+5. BX - $172.49 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. PANW - $192.59 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.1
-2. CNC - $30.41 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 13.0
-3. AXON - $742.77 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.7
-4. CTSH - $74.83 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.1
-5. WDAY - $226.73 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 40.3
+1. CPRT - $45.89 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.2
+2. CRWD - $469.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.7
+3. QCOM - $152.61 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.2
+4. AXON - $745.86 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.9
+5. ISRG - $516.16 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.9
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
