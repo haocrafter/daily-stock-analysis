@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-21 10:28 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-22 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -7,30 +7,31 @@
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 1
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
 • MOMENTUM: 30 stocks (75.0%)
-• WEAK: 10 stocks (25.0%)
+• WEAK: 9 stocks (22.5%)
+• MEAN REVERSION: 1 stocks (2.5%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. RIVN - $13.70 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.2
-2. PLTR - $153.52 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.8
-3. TSLA - $329.65 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 52.6
-4. LCID - $3.04 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.8
-5. CSX - $34.39 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.3
+1. AMZN - $229.30 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.0
+2. QS - $12.52 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.9
+3. AVGO - $288.21 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.5
+4. AMD - $157.00 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
+5. TTD - $80.03 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 75.9
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. NFLX - $1209.24 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.5
-2. BIIB - $124.99 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 48.3
-3. IDXX - $514.61 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.1
-4. CHTR - $382.08 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.8
-5. ODFL - $162.09 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.8
+1. CTSH - $75.42 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.3
+2. CNC - $27.43 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 9.8
+3. VRTX - $458.49 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.0
+4. DXCM - $84.03 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.0
+5. ADP - $300.90 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
