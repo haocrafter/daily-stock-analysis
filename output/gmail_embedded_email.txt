@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-24 10:28 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-25 10:30 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 28 stocks (73.7%)
-• WEAK: 10 stocks (26.3%)
+• MOMENTUM: 30 stocks (78.9%)
+• WEAK: 8 stocks (21.1%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. CSGP - $91.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 80.2
-2. DXCM - $86.43 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.7
-3. MRNA - $34.67 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.3
-4. BKR - $44.68 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.3
-5. PYPL - $76.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.2
+1. TMUS - $247.50 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.4
+2. CSGP - $92.96 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 81.7
+3. WBD - $13.50 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 89.9
+4. AMZN - $232.23 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.0
+5. PANW - $201.16 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. ADI - $228.08 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 23.7
-2. TXN - $186.25 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 18.9
-3. AXON - $705.22 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.5
-4. MCHP - $70.25 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.2
-5. MU - $109.83 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.1
+1. HON - $224.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.5
+2. DOW - $25.07 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.8
+3. CMG - $45.74 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 12.6
+4. MCHP - $67.81 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.1
+5. ON - $55.44 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.9
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
