@@ -1,37 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-28 10:29 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-29 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 42
+• Total Stocks Analyzed: 39
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 4
+• Mean Reversion Signals: 1
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (71.4%)
-• WEAK: 8 stocks (19.0%)
-• MEAN REVERSION: 4 stocks (9.5%)
+• MOMENTUM: 30 stocks (76.9%)
+• WEAK: 8 stocks (20.5%)
+• MEAN REVERSION: 1 stocks (2.6%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. IDXX - $565.19 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.4
-2. BIIB - $131.52 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 52.0
-3. RIVN - $14.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.9
-4. WFC - $84.32 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 57.2
-5. REGN - $563.10 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.0
+1. SMCI - $60.05 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.5
+2. CEG - $328.66 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.3
+3. NKE - $79.24 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.8
+4. DDOG - $150.77 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.0
+5. PYPL - $78.22 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. INTC - $20.70 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 40.6
-2. CMCSA - $33.68 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.9
-3. HON - $224.24 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.1
-4. CHTR - $309.75 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 19.2
-5. ADI - $227.82 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.6
+1. INTC - $20.68 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 22.6
+2. VRTX - $460.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.8
+3. BIIB - $129.28 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.9
+4. CHTR - $298.27 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 16.3
+5. KDP - $32.97 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.0
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
