@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-30 10:29 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-07-31 10:31 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 43
+• Total Stocks Analyzed: 39
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (69.8%)
-• WEAK: 13 stocks (30.2%)
+• MOMENTUM: 30 stocks (76.9%)
+• WEAK: 9 stocks (23.1%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. AVGO - $297.42 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
-2. INTU - $806.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.2
-3. IDXX - $573.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.0
-4. AMD - $177.44 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 88.4
-5. BKR - $45.75 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.6
+1. CEG - $345.27 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.1
+2. PTON - $7.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.5
+3. CDNS - $371.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 80.3
+4. MRVL - $81.74 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.6
+5. ADSK - $308.14 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.8
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. PYPL - $71.45 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.8
-2. ODFL - $162.12 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.5
-3. MSTR - $394.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.0
-4. UNH - $261.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.0
-5. CHTR - $280.68 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 15.4
+1. PANW - $183.03 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.1
+2. GEHC - $71.64 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.6
+3. PYPL - $69.71 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.1
+4. LULU - $206.47 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 22.1
+5. MDLZ - $65.10 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
