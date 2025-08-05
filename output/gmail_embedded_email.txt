@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-04 10:31 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-05 10:28 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -7,31 +7,31 @@
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 5
+• Mean Reversion Signals: 1
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
 • MOMENTUM: 30 stocks (75.0%)
-• MEAN REVERSION: 5 stocks (12.5%)
-• WEAK: 5 stocks (12.5%)
+• WEAK: 9 stocks (22.5%)
+• MEAN REVERSION: 1 stocks (2.5%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. T - $27.75 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.9
-2. CDNS - $356.97 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.2
-3. META - $750.01 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.1
-4. MSFT - $524.11 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.0
-5. AEP - $113.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.4
+1. DASH - $258.02 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.9
+2. REGN - $571.54 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.8
+3. CEG - $354.89 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.5
+4. NCLH - $25.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.0
+5. IDXX - $682.78 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 80.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. AMZN - $214.75 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.7
-2. BAC - $45.66 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.8
-3. DXCM - $79.28 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.5
-4. COIN - $314.69 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.5
-5. ADBE - $347.80 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.8
+1. QCOM - $147.51 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.9
+2. ON - $47.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.9
+3. DXCM - $76.25 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.5
+4. AMZN - $211.65 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.4
+5. ADBE - $338.85 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 25.3
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
