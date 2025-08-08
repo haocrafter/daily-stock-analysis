@@ -1,37 +1,36 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-07 10:27 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-08 10:29 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 41
+• Total Stocks Analyzed: 37
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 2
+• Mean Reversion Signals: 0
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (73.2%)
-• WEAK: 9 stocks (22.0%)
-• MEAN REVERSION: 2 stocks (4.9%)
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 7 stocks (18.9%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. SHOP - $154.90 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 74.6
-2. ANET - $138.78 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 78.5
-3. META - $771.99 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.9
-4. ADSK - $305.18 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.3
-5. IDXX - $624.19 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.1
+1. KDP - $33.90 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.6
+2. AAPL - $220.03 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.9
+3. APP - $437.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.6
+4. CSCO - $69.90 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.6
+5. SHOP - $151.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.7
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. AMGN - $284.67 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.8
-2. LCID - $2.18 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 20.3
-3. BAC - $45.42 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.5
-4. RIVN - $11.64 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.8
-5. SMCI - $46.79 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.2
+1. ADSK - $292.99 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.2
+2. CRWD - $425.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.7
+3. CRM - $240.88 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 25.5
+4. VRTX - $375.63 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.8
+5. ABNB - $120.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 22.5
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
