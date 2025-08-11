@@ -1,36 +1,37 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-08 10:29 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-11 10:31 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 37
+• Total Stocks Analyzed: 40
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 0
+• Mean Reversion Signals: 2
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (81.1%)
-• WEAK: 7 stocks (18.9%)
+• MOMENTUM: 30 stocks (75.0%)
+• WEAK: 8 stocks (20.0%)
+• MEAN REVERSION: 2 stocks (5.0%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. KDP - $33.90 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.6
-2. AAPL - $220.03 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.9
-3. APP - $437.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.6
-4. CSCO - $69.90 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.6
-5. SHOP - $151.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.7
+1. AVGO - $304.97 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.4
+2. GOOGL - $201.42 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
+3. BIIB - $130.67 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.2
+4. GOOG - $202.09 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
+5. GILD - $119.41 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.6
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. ADSK - $292.99 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 46.2
-2. CRWD - $425.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.7
-3. CRM - $240.88 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 25.5
-4. VRTX - $375.63 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.8
-5. ABNB - $120.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 22.5
+1. TTD - $54.23 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.0
+2. VRTX - $366.54 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.7
+3. MCHP - $61.87 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 23.0
+4. FTNT - $74.39 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 5.3
+5. WBD - $10.91 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
