@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-18 10:31 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-19 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 41
+• Total Stocks Analyzed: 40
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (73.2%)
-• WEAK: 11 stocks (26.8%)
+• MOMENTUM: 30 stocks (75.0%)
+• WEAK: 10 stocks (25.0%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. UNH - $304.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.2
-2. SOFI - $23.77 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.7
-3. BIIB - $138.60 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 65.2
-4. INTC - $24.56 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 74.6
-5. TMUS - $254.63 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 74.7
+1. UNH - $308.49 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.2
+2. INTC - $23.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.1
+3. UBER - $93.98 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.3
+4. F - $11.46 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.6
+5. DAL - $61.09 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.2
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. AMAT - $161.76 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.6
-2. KLAC - $874.94 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.8
-3. CSCO - $66.20 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 44.3
-4. AMCR - $8.73 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 30.8
-5. MSTR - $366.32 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.3
+1. KHC - $27.27 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.9
+2. AMAT - $163.53 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.5
+3. MSTR - $363.60 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.9
+4. KLAC - $883.39 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 44.8
+5. CSCO - $66.95 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 46.8
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
