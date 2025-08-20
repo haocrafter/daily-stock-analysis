@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-19 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-20 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -18,19 +18,19 @@
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. UNH - $308.49 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.2
-2. INTC - $23.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.1
-3. UBER - $93.98 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.3
-4. F - $11.46 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.6
-5. DAL - $61.09 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 72.2
+1. INTC - $25.31 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 74.6
+2. PFE - $25.32 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.0
+3. TXN - $195.94 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.0
+4. ADP - $305.72 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.5
+5. LIN - $479.92 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.7
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. KHC - $27.27 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.9
-2. AMAT - $163.53 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.5
-3. MSTR - $363.60 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.9
-4. KLAC - $883.39 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 44.8
-5. CSCO - $66.95 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 46.8
+1. ORCL - $234.62 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.7
+2. KLAC - $876.08 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.0
+3. LCID - $2.13 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.2
+4. COIN - $302.07 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.5
+5. AMAT - $162.22 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.8
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
