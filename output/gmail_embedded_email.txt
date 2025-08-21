@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-20 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-21 10:26 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 40
+• Total Stocks Analyzed: 46
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (75.0%)
-• WEAK: 10 stocks (25.0%)
+• MOMENTUM: 30 stocks (65.2%)
+• WEAK: 16 stocks (34.8%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. INTC - $25.31 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 74.6
-2. PFE - $25.32 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.0
-3. TXN - $195.94 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.0
-4. ADP - $305.72 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.5
-5. LIN - $479.92 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 67.7
+1. REGN - $591.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.0
+2. AMGN - $296.45 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.3
+3. ADI - $244.87 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.1
+4. NIO - $5.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 54.1
+5. NXPI - $228.77 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.7
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. ORCL - $234.62 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 37.7
-2. KLAC - $876.08 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.0
-3. LCID - $2.13 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.2
-4. COIN - $302.07 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.5
-5. AMAT - $162.22 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.8
+1. SBUX - $89.51 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 52.3
+2. COIN - $304.39 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 25.5
+3. AMAT - $160.96 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.0
+4. LCID - $2.09 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.2
+5. DASH - $243.82 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 46.2
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
