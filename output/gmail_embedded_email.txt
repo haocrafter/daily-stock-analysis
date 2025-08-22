@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-21 10:26 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-22 10:27 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 46
+• Total Stocks Analyzed: 41
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (65.2%)
-• WEAK: 16 stocks (34.8%)
+• MOMENTUM: 30 stocks (73.2%)
+• WEAK: 11 stocks (26.8%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. REGN - $591.01 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.0
-2. AMGN - $296.45 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 51.3
-3. ADI - $244.87 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.1
-4. NIO - $5.07 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 54.1
-5. NXPI - $228.77 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.7
+1. NIO - $5.54 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.6
+2. BKNG - $5710.74 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.5
+3. REGN - $598.16 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.4
+4. BAC - $48.26 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.4
+5. ADI - $246.95 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. SBUX - $89.51 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 52.3
-2. COIN - $304.39 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 25.5
-3. AMAT - $160.96 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 32.0
-4. LCID - $2.09 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.2
-5. DASH - $243.82 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.60 | RSI: 46.2
+1. KLAC - $872.39 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.5
+2. TSLA - $320.11 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.6
+3. COIN - $300.28 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.1
+4. ON - $48.81 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.9
+5. MSTR - $337.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 40.5
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
