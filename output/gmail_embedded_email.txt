@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-22 10:27 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-25 10:27 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 41
+• Total Stocks Analyzed: 42
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (73.2%)
-• WEAK: 11 stocks (26.8%)
+• MOMENTUM: 30 stocks (71.4%)
+• WEAK: 12 stocks (28.6%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. NIO - $5.54 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.6
-2. BKNG - $5710.74 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.5
-3. REGN - $598.16 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.4
-4. BAC - $48.26 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.4
-5. ADI - $246.95 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 79.3
+1. NIO - $6.34 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.5
+2. RIVN - $13.09 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.7
+3. MCHP - $69.14 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 57.8
+4. CCL - $31.30 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.6
+5. TSLA - $340.01 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.6
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. KLAC - $872.39 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.5
-2. TSLA - $320.11 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 62.6
-3. COIN - $300.28 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.1
-4. ON - $48.81 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 28.9
-5. MSTR - $337.58 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 40.5
+1. INTU - $662.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 14.2
+2. LCID - $2.03 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.8
+3. MSTR - $358.13 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.7
+4. SBUX - $88.38 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.6
+5. NIO - $6.34 | Signal: 0.560 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.5
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
