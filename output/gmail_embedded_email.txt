@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-26 10:23 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-27 10:21 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 35
+• Total Stocks Analyzed: 37
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (85.7%)
-• WEAK: 5 stocks (14.3%)
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 7 stocks (18.9%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. SOFI - $26.15 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 75.0
-2. RIVN - $13.11 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 63.1
-3. OPEN - $4.54 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.3
-4. RIOT - $13.28 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 66.9
-5. PDD - $128.21 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 81.0
+1. RKLB - $48.13 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.8
+2. UUUU - $12.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.4
+3. SATS - $50.87 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 94.9
+4. NIO - $6.70 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.4
+5. SOFI - $25.62 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.5
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. KDP - $31.10 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.2
-2. MRNA - $25.35 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 38.9
-3. CSX - $32.81 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 30.3
-4. QS - $8.05 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.9
-5. PLTR - $157.17 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.0
+1. KDP - $28.95 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.3
+2. DDOG - $126.31 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.1
+3. MRNA - $24.73 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.5
+4. WBD - $11.80 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.4
+5. SATS - $50.87 | Signal: 0.587 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 94.9
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
