@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-27 10:21 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-28 10:22 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 37
+• Total Stocks Analyzed: 44
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (81.1%)
-• WEAK: 7 stocks (18.9%)
+• MOMENTUM: 28 stocks (63.6%)
+• WEAK: 16 stocks (36.4%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. RKLB - $48.13 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.8
-2. UUUU - $12.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.4
-3. SATS - $50.87 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 94.9
-4. NIO - $6.70 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 77.4
-5. SOFI - $25.62 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 71.5
+1. PSNYW - $0.47 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 90.9
+2. WBD - $12.15 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.5
+3. UPST - $69.60 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 50.1
+4. NTLA - $11.42 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.4
+5. PSNY - $1.30 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 80.0
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. KDP - $28.95 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.3
-2. DDOG - $126.31 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.1
-3. MRNA - $24.73 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.5
-4. WBD - $11.80 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.4
-5. SATS - $50.87 | Signal: 0.587 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 94.9
+1. MRNA - $25.10 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.2
+2. KDP - $29.72 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 26.7
+3. QS - $8.04 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.8
+4. LI - $22.60 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 36.4
+5. PSNYW - $0.47 | Signal: 0.587 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 90.9
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
