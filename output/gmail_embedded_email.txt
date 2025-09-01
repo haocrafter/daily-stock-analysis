@@ -1,37 +1,36 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-08-29 10:21 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-01 10:23 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 45
+• Total Stocks Analyzed: 41
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
 • Momentum Signals: 10
-• Mean Reversion Signals: 1
+• Mean Reversion Signals: 0
 • Data Sources: S&P 500, NASDAQ 100, Most Active, Recent IPOs
 • Strategies: Mean Reversion + Momentum Analysis
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 24 stocks (53.3%)
-• WEAK: 20 stocks (44.4%)
-• MEAN REVERSION: 1 stocks (2.2%)
+• MOMENTUM: 29 stocks (70.7%)
+• WEAK: 12 stocks (29.3%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. PINS - $36.70 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.1
-2. CRWD - $442.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.8
-3. SNOW - $241.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 84.6
-4. NET - $213.42 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 58.9
-5. DDOG - $140.96 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 64.7
+1. BABA - $135.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
+2. UPST - $73.28 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.2
+3. DNN - $2.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.6
+4. AFRM - $88.46 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.3
+5. PSLV - $13.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.4
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. SPOT - $687.80 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.4
-2. GILD - $112.56 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 21.2
-3. BMNR - $45.57 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.4
-4. BIIB - $132.65 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 53.6
-5. MRNA - $24.47 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 41.6
+1. MRVL - $62.87 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.3
+2. LCID - $1.98 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.3
+3. PLUG - $1.57 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.2
+4. CRSP - $51.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.3
+5. AMC - $2.81 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.6
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
