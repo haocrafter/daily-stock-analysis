@@ -1,4 +1,4 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-01 10:23 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-02 10:22 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
@@ -19,18 +19,18 @@
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
 1. BABA - $135.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
-2. UPST - $73.28 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.2
-3. DNN - $2.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.6
-4. AFRM - $88.46 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.3
+2. DNN - $2.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.6
+3. AFRM - $88.46 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.3
+4. UPST - $73.28 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.2
 5. PSLV - $13.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.4
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
 1. MRVL - $62.87 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.3
-2. LCID - $1.98 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.3
+2. LCID - $19.80 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.3
 3. PLUG - $1.57 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.2
-4. CRSP - $51.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.3
-5. AMC - $2.81 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.6
+4. AMC - $2.81 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.6
+5. CRSP - $51.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.3
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
