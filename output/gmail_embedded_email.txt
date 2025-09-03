@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-02 10:22 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-03 10:21 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 41
+• Total Stocks Analyzed: 36
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 29 stocks (70.7%)
-• WEAK: 12 stocks (29.3%)
+• MOMENTUM: 30 stocks (83.3%)
+• WEAK: 6 stocks (16.7%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. BABA - $135.00 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.7
-2. DNN - $2.32 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.6
-3. AFRM - $88.46 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 73.3
-4. UPST - $73.28 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 69.2
-5. PSLV - $13.48 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 68.4
+1. AFRM - $82.22 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 57.5
+2. CIFR - $8.32 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 87.8
+3. IREN - $29.11 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 82.6
+4. BTG - $4.27 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
+5. GME - $23.41 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 56.3
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. MRVL - $62.87 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 27.3
-2. LCID - $19.80 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 34.3
-3. PLUG - $1.57 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 49.2
-4. AMC - $2.81 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.6
-5. CRSP - $51.83 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 39.3
+1. KHC - $26.02 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.5
+2. LCID - $17.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 18.7
+3. TSLA - $329.36 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.2
+4. NVDA - $170.78 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.3
+5. DASH - $244.10 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.5
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
