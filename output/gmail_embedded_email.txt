@@ -1,8 +1,8 @@
-📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-03 10:21 UTC
+📈 COMBINED STRATEGY ANALYSIS REPORT - 2025-09-04 10:21 UTC
 ============================================================
 
 📊 COMBINED STRATEGY SUMMARY:
-• Total Stocks Analyzed: 36
+• Total Stocks Analyzed: 37
 • Strong Buy Signals: 5
 • Strong Sell Signals: 5
 • Consensus Signals: 0
@@ -13,24 +13,24 @@
 
 🎯 STRATEGY BREAKDOWN:
 --------------------------------------------------
-• MOMENTUM: 30 stocks (83.3%)
-• WEAK: 6 stocks (16.7%)
+• MOMENTUM: 30 stocks (81.1%)
+• WEAK: 7 stocks (18.9%)
 
 🟢 TOP 5 COMBINED BUY SIGNALS:
 --------------------------------------------------
-1. AFRM - $82.22 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 57.5
-2. CIFR - $8.32 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 87.8
-3. IREN - $29.11 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 82.6
-4. BTG - $4.27 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 76.3
-5. GME - $23.41 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 56.3
+1. AFRM - $85.31 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 60.0
+2. BEAM - $18.76 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 59.7
+3. RBLX - $133.46 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 57.4
+4. DNN - $2.35 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 70.9
+5. BIIB - $141.62 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 61.8
 
 🔴 TOP 5 COMBINED SELL SIGNALS:
 --------------------------------------------------
-1. KHC - $26.02 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 42.5
-2. LCID - $17.66 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 18.7
-3. TSLA - $329.36 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 43.2
-4. NVDA - $170.78 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.3
-5. DASH - $244.10 | Signal: 0.640 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 29.5
+1. EDIT - $2.50 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 24.6
+2. PACB - $1.26 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 47.9
+3. PLUG - $1.49 | Signal: 0.800 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 35.6
+4. LCID - $16.78 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 9.7
+5. MRNA - $24.05 | Signal: 0.720 | Strategy: MOMENTUM | Confidence: 0.75 | RSI: 33.1
 
 💡 COMBINED STRATEGY TIPS:
 • Consensus Signals: Both strategies agree - highest confidence
